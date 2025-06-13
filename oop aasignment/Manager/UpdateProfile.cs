@@ -31,20 +31,43 @@ namespace oop_aasignment
             string phone = txtPhone.Text.Trim();
             string password = txtPassword.Text.Trim();
 
-            if (!email.Contains("@"))
+            if (string.IsNullOrWhiteSpace(name) ||
+               string.IsNullOrWhiteSpace(email) ||
+               string.IsNullOrWhiteSpace(phone) ||
+               string.IsNullOrWhiteSpace(password))
+            {
+                MessageBox.Show("All fields are required.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(name) || name.Any(char.IsDigit))
+            {
+                MessageBox.Show("Please enter a valid name (letters only).");
+                return;
+            }
+
+            // ✅ Email
+            if (string.IsNullOrWhiteSpace(email) || !email.Contains("@") || !email.Contains("."))
             {
                 MessageBox.Show("Please enter a valid email address.");
                 return;
             }
 
-            if (string.IsNullOrWhiteSpace(name) ||
-                string.IsNullOrWhiteSpace(email) ||
-                string.IsNullOrWhiteSpace(phone) ||
-                string.IsNullOrWhiteSpace(password))
+            // ✅ Phone
+            if (string.IsNullOrWhiteSpace(phone) || phone.Length < 8 || !phone.All(char.IsDigit))
             {
-                MessageBox.Show("All fields are required.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Please enter a valid phone number (digits only).");
                 return;
             }
+
+            // ✅ Password
+            if (string.IsNullOrWhiteSpace(password) || password.Length < 6)
+            {
+                MessageBox.Show("Password must be at least 6 characters long.");
+                return;
+            }
+
+           
 
             try
             {
