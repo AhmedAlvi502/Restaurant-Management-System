@@ -23,7 +23,13 @@ namespace oop_aasignment
         private void LoadOrders()
         {
             dgvOrders.DataSource = chef.GetOrdersByCategory(chefCategory); // Filtered by chef category
+            dgvOrders.ClearSelection();
+            cmbStatus.SelectedIndex = -1;
+            dgvOrders.CellClick += dgvOrders_CellClick;
+
         }
+
+
 
         private void ViewOrdersForm_Load(object sender, EventArgs e)
         {
@@ -60,6 +66,25 @@ namespace oop_aasignment
 
         private void cmbStatus_SelectedIndexChanged(object sender, EventArgs e) { }
         private void dvgOrders_CellContentClick(object sender, DataGridViewCellEventArgs e) { }
-    }
 
+
+        private void dgvOrders_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && dgvOrders.Rows[e.RowIndex] != null)
+            {
+                DataGridViewRow selectedRow = dgvOrders.Rows[e.RowIndex];
+
+                object statusValue = selectedRow.Cells["status"].Value;
+                if (statusValue != null)
+                {
+                    cmbStatus.SelectedItem = statusValue.ToString();
+                }
+                else
+                {
+                    cmbStatus.SelectedIndex = -1;
+                }
+            }
+        }
+
+    }
 }
