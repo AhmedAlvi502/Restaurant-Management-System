@@ -92,15 +92,33 @@ public class Chef : User
     /// </summary>
     public string DeleteMenuItem(int itemId)
     {
-        using (SqlConnection conn = new SqlConnection(connectionString))
+        try
         {
-            string query = "DELETE FROM menu_items WHERE menu_id=@id";
-            SqlCommand cmd = new SqlCommand(query, conn);
-            cmd.Parameters.AddWithValue("@id", itemId);
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
 
-            conn.Open();
-            cmd.ExecuteNonQuery();
-            return "Item deleted!";
+                // First delete from order_items
+                string deleteOrderItems = "DELETE FROM order_items WHERE menu_id = @itemId";
+                using (SqlCommand cmd1 = new SqlCommand(deleteOrderItems, conn))
+                {
+                    cmd1.Parameters.AddWithValue("@itemId", itemId);
+                    cmd1.ExecuteNonQuery();
+                }
+
+                // Then delete from menu_items
+                string deleteMenuItem = "DELETE FROM menu_items WHERE menu_id = @itemId";
+                using (SqlCommand cmd2 = new SqlCommand(deleteMenuItem, conn))
+                {
+                    cmd2.Parameters.AddWithValue("@itemId", itemId);
+                    int rows = cmd2.ExecuteNonQuery();
+                    return rows > 0 ? "Item is deleted!" : "Item not found.";
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            return "Error: " + ex.Message;
         }
     }
 
