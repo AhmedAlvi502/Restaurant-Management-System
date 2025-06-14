@@ -63,25 +63,9 @@ namespace oop_aasignment
 
         }
 
-        private void btnCategory_Click(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void btnChef_Click(object sender, EventArgs e)
-        {
-            //this.salesTableAdapter.OrderByChef(this.sedapMakanSales.Sales);
-        }
 
         private void btnGenReport_Click(object sender, EventArgs e)
         {
-            //String itemCategory = cmbCategory.SelectedItem.ToString();
-            //String chef = cmbChef.SelectedItem.ToString();
-            //int month = (int)cmbMonth.SelectedItem;
-            //int year = (int)cmbYear.SelectedItem;
-
-            //DataTable dt = Admin.SortSalesView(itemCategory, chef, month, year);
-            //salesDataGridView.DataSource = dt;
 
             string connectionString = myconn; // Replace with your actual connection string
 

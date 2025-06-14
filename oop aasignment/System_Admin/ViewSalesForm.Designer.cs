@@ -38,31 +38,14 @@
             this.lblYear = new System.Windows.Forms.Label();
             this.lblChef = new System.Windows.Forms.Label();
             this.lblCategory = new System.Windows.Forms.Label();
-            this.btnCategory = new System.Windows.Forms.Button();
-            this.btnChef = new System.Windows.Forms.Button();
             this.sqlCommandBuilder1 = new System.Data.SqlClient.SqlCommandBuilder();
             this.btnExitViewer = new System.Windows.Forms.Button();
             this.salesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            //this.sedapMakanSales = new oop_aasignment.SedapMakanSales();
-            //this.sedapMakanSalesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            //this.salesTableAdapter = new oop_aasignment.SedapMakanSalesTableAdapters.SalesTableAdapter();
-            //this.tableAdapterManager = new oop_aasignment.SedapMakanSalesTableAdapters.TableAdapterManager();
             this.salesDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnClearFields = new System.Windows.Forms.Button();
-            this.lblSortBy = new System.Windows.Forms.Label();
             this.btnGenReport = new System.Windows.Forms.Button();
-            //((System.ComponentModel.ISupportInitialize)(this.salesBindingSource)).BeginInit();
-            //((System.ComponentModel.ISupportInitialize)(this.sedapMakanSales)).BeginInit();
-            //((System.ComponentModel.ISupportInitialize)(this.sedapMakanSalesBindingSource)).BeginInit();
-            //((System.ComponentModel.ISupportInitialize)(this.salesDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.salesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.salesDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // lblAdminProfile
@@ -177,30 +160,6 @@
             this.lblCategory.TabIndex = 3;
             this.lblCategory.Text = "Select Category";
             // 
-            // btnCategory
-            // 
-            this.btnCategory.BackColor = System.Drawing.Color.LightGreen;
-            this.btnCategory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCategory.Location = new System.Drawing.Point(364, 496);
-            this.btnCategory.Name = "btnCategory";
-            this.btnCategory.Size = new System.Drawing.Size(144, 33);
-            this.btnCategory.TabIndex = 10;
-            this.btnCategory.Text = "Category";
-            this.btnCategory.UseVisualStyleBackColor = false;
-            this.btnCategory.Click += new System.EventHandler(this.btnCategory_Click);
-            // 
-            // btnChef
-            // 
-            this.btnChef.BackColor = System.Drawing.Color.LightGreen;
-            this.btnChef.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnChef.Location = new System.Drawing.Point(562, 496);
-            this.btnChef.Name = "btnChef";
-            this.btnChef.Size = new System.Drawing.Size(144, 33);
-            this.btnChef.TabIndex = 10;
-            this.btnChef.Text = "Chef";
-            this.btnChef.UseVisualStyleBackColor = false;
-            this.btnChef.Click += new System.EventHandler(this.btnChef_Click);
-            // 
             // btnExitViewer
             // 
             this.btnExitViewer.BackColor = System.Drawing.Color.IndianRed;
@@ -214,44 +173,10 @@
             this.btnExitViewer.UseVisualStyleBackColor = false;
             this.btnExitViewer.Click += new System.EventHandler(this.button1_Click);
             // 
-            // salesBindingSource
-            // 
-            //this.salesBindingSource.DataMember = "Sales";
-            //this.salesBindingSource.DataSource = this.sedapMakanSales;
-            // 
-            // sedapMakanSales
-            // 
-            //this.sedapMakanSales.DataSetName = "SedapMakanSales";
-            //this.sedapMakanSales.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // sedapMakanSalesBindingSource
-            // 
-            //this.sedapMakanSalesBindingSource.DataSource = this.sedapMakanSales;
-            //this.sedapMakanSalesBindingSource.Position = 0;
-            // 
-            // salesTableAdapter
-            // 
-            //this.salesTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            //this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            //this.tableAdapterManager.SalesTableAdapter = this.salesTableAdapter;
-            //this.tableAdapterManager.UpdateOrder = oop_aasignment.SedapMakanSalesTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            // 
             // salesDataGridView
             // 
             this.salesDataGridView.AutoGenerateColumns = false;
             this.salesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.salesDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn6,
-            this.dataGridViewTextBoxColumn7,
-            this.dataGridViewTextBoxColumn8});
             this.salesDataGridView.DataSource = this.salesBindingSource;
             this.salesDataGridView.Location = new System.Drawing.Point(32, 196);
             this.salesDataGridView.Name = "salesDataGridView";
@@ -259,72 +184,6 @@
             this.salesDataGridView.RowTemplate.Height = 24;
             this.salesDataGridView.Size = new System.Drawing.Size(942, 264);
             this.salesDataGridView.TabIndex = 15;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "sales_id";
-            this.dataGridViewTextBoxColumn1.HeaderText = "sales_id";
-            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 60;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "item_name";
-            this.dataGridViewTextBoxColumn2.HeaderText = "item_name";
-            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.Width = 120;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "item_category";
-            this.dataGridViewTextBoxColumn3.HeaderText = "item_category";
-            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.Width = 90;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "chef_name";
-            this.dataGridViewTextBoxColumn4.HeaderText = "chef_name";
-            this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.Width = 90;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "sale_date";
-            this.dataGridViewTextBoxColumn5.HeaderText = "sale_date";
-            this.dataGridViewTextBoxColumn5.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.Width = 90;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "item_price";
-            this.dataGridViewTextBoxColumn6.HeaderText = "item_price";
-            this.dataGridViewTextBoxColumn6.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.Width = 60;
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "quantity";
-            this.dataGridViewTextBoxColumn7.HeaderText = "quantity";
-            this.dataGridViewTextBoxColumn7.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.Width = 60;
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "gross_sales";
-            this.dataGridViewTextBoxColumn8.HeaderText = "sales";
-            this.dataGridViewTextBoxColumn8.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            this.dataGridViewTextBoxColumn8.ReadOnly = true;
-            this.dataGridViewTextBoxColumn8.Width = 60;
             // 
             // btnClearFields
             // 
@@ -339,25 +198,13 @@
             this.btnClearFields.UseVisualStyleBackColor = false;
             this.btnClearFields.Click += new System.EventHandler(this.btnClearFields_Click);
             // 
-            // lblSortBy
-            // 
-            this.lblSortBy.AutoSize = true;
-            this.lblSortBy.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSortBy.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblSortBy.Location = new System.Drawing.Point(251, 499);
-            this.lblSortBy.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblSortBy.Name = "lblSortBy";
-            this.lblSortBy.Size = new System.Drawing.Size(85, 23);
-            this.lblSortBy.TabIndex = 11;
-            this.lblSortBy.Text = "SORT BY:";
-            // 
             // btnGenReport
             // 
             this.btnGenReport.BackColor = System.Drawing.Color.LightGreen;
             this.btnGenReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGenReport.Location = new System.Drawing.Point(815, 83);
+            this.btnGenReport.Location = new System.Drawing.Point(399, 499);
             this.btnGenReport.Name = "btnGenReport";
-            this.btnGenReport.Size = new System.Drawing.Size(144, 33);
+            this.btnGenReport.Size = new System.Drawing.Size(159, 33);
             this.btnGenReport.TabIndex = 17;
             this.btnGenReport.Text = "Generate Report";
             this.btnGenReport.UseVisualStyleBackColor = false;
@@ -373,9 +220,6 @@
             this.Controls.Add(this.btnClearFields);
             this.Controls.Add(this.salesDataGridView);
             this.Controls.Add(this.btnExitViewer);
-            this.Controls.Add(this.lblSortBy);
-            this.Controls.Add(this.btnChef);
-            this.Controls.Add(this.btnCategory);
             this.Controls.Add(this.lblCategory);
             this.Controls.Add(this.lblChef);
             this.Controls.Add(this.lblYear);
@@ -388,10 +232,8 @@
             this.Name = "formSalesView";
             this.Text = "Sales Report";
             this.Load += new System.EventHandler(this.formSalesView_Load);
-            //((System.ComponentModel.ISupportInitialize)(this.salesBindingSource)).EndInit();
-            //((System.ComponentModel.ISupportInitialize)(this.sedapMakanSales)).EndInit();
-            //((System.ComponentModel.ISupportInitialize)(this.sedapMakanSalesBindingSource)).EndInit();
-            //((System.ComponentModel.ISupportInitialize)(this.salesDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.salesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.salesDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -410,10 +252,6 @@
         private System.Windows.Forms.BindingSource sedapMakanSalesBindingSource;
         //private SedapMakanSales sedapMakanSales;
         private System.Windows.Forms.BindingSource salesBindingSource;
-        //private SedapMakanSalesTableAdapters.SalesTableAdapter salesTableAdapter;
-        //private SedapMakanSalesTableAdapters.TableAdapterManager tableAdapterManager;
-        private System.Windows.Forms.Button btnCategory;
-        private System.Windows.Forms.Button btnChef;
         private System.Data.SqlClient.SqlCommandBuilder sqlCommandBuilder1;
         private System.Windows.Forms.Button btnExitViewer;
         private System.Windows.Forms.DataGridView salesDataGridView;
@@ -426,7 +264,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
         private System.Windows.Forms.Button btnClearFields;
-        private System.Windows.Forms.Label lblSortBy;
         private System.Windows.Forms.Button btnGenReport;
     }
 }

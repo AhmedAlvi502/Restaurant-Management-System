@@ -92,6 +92,7 @@
             this.btnChef.TabIndex = 7;
             this.btnChef.Text = "Chef Profile";
             this.btnChef.UseVisualStyleBackColor = false;
+            this.btnChef.Click += new System.EventHandler(this.btnChef_Click);
             // 
             // btnCustomers
             // 
@@ -106,6 +107,7 @@
             this.btnCustomers.TabIndex = 8;
             this.btnCustomers.Text = "Customer Profiles";
             this.btnCustomers.UseVisualStyleBackColor = false;
+            this.btnCustomers.Click += new System.EventHandler(this.btnCustomers_Click);
             // 
             // btnGoBack
             // 

@@ -14,6 +14,8 @@ namespace oop_aasignment
     {
         private int AdminID = 1;
         private int ManagerID = 2;
+        private int ChefID = 3;
+        
         
         public UserProfilesForm()
         {
@@ -41,6 +43,23 @@ namespace oop_aasignment
             PageProfileManager.FormClosed += (s, args) => this.Show();
             PageProfileManager.Show();
 
+        }
+
+        private void btnChef_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            UpdateProfileForm PageProfileChef = new UpdateProfileForm(ChefID);
+            PageProfileChef.FormClosed += (s, args) => this.Show();
+            PageProfileChef.Show();
+        }
+
+        private void btnCustomers_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FormCustomerProfile PageProfileCustomer = new FormCustomerProfile(this);
+            
+            PageProfileCustomer.FormClosed += (s, args) => this.Show();
+            PageProfileCustomer.Show();
         }
     }
 }
