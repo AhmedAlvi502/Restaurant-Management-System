@@ -196,10 +196,6 @@ public class Chef : User
             default: return "";
         }
     }
-
-    /// <summary>
-    /// Gets the chef's user ID after login (used for verification).
-    /// </summary>
     
 
     /// <summary>
