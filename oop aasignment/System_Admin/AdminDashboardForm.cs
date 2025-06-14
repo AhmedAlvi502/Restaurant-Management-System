@@ -13,17 +13,24 @@ namespace oop_aasignment
     public partial class formAdminDashboard : Form
     {
         int AdminId;
-        Chef Admin = new Chef();
+        SystemAdmin Admin = new SystemAdmin();
         public formAdminDashboard(int Id)
         {
             InitializeComponent();
             AdminId = Id; // ✅ store the ID passed from login
         }
 
+        public formAdminDashboard()
+        {
+            InitializeComponent();
+        }
+
         private void btnAdminProfile_Click(object sender, EventArgs e)
         {
-            Form pageUserProfile = new formUserProfiles();
-            pageUserProfile.ShowDialog();
+            this.Hide();
+            Form pageUserProfile = new UserProfilesForm();
+            pageUserProfile.FormClosed += (s, args) => this.Show();
+            pageUserProfile.Show();
         }
 
         private void formAdminDashboard_Load(object sender, EventArgs e)
@@ -41,8 +48,10 @@ namespace oop_aasignment
 
         private void btnSalesReport_Click(object sender, EventArgs e)
         {
+            this.Hide();
             formSalesView pageSalesView = new formSalesView();
-            pageSalesView.ShowDialog();
+            pageSalesView.FormClosed += (s, args) => this.Show();
+            pageSalesView.Show();
         }
     }
 }

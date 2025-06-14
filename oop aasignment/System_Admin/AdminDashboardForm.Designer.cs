@@ -31,7 +31,7 @@
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.btnManageUsers = new System.Windows.Forms.Button();
             this.btnSalesReport = new System.Windows.Forms.Button();
-            this.btnAdminProfile = new System.Windows.Forms.Button();
+            this.btnUserProfile = new System.Windows.Forms.Button();
             this.btnViewEWallet = new System.Windows.Forms.Button();
             this.lblAdminWelcome = new System.Windows.Forms.Label();
             this.btnAdminLogout = new System.Windows.Forms.Button();
@@ -66,20 +66,20 @@
             this.btnSalesReport.UseVisualStyleBackColor = false;
             this.btnSalesReport.Click += new System.EventHandler(this.btnSalesReport_Click);
             // 
-            // btnAdminProfile
+            // btnUserProfile
             // 
-            this.btnAdminProfile.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.btnAdminProfile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAdminProfile.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdminProfile.ForeColor = System.Drawing.Color.Black;
-            this.btnAdminProfile.Location = new System.Drawing.Point(253, 389);
-            this.btnAdminProfile.Margin = new System.Windows.Forms.Padding(4);
-            this.btnAdminProfile.Name = "btnAdminProfile";
-            this.btnAdminProfile.Size = new System.Drawing.Size(267, 62);
-            this.btnAdminProfile.TabIndex = 2;
-            this.btnAdminProfile.Text = "Update Any User Profile\r\n";
-            this.btnAdminProfile.UseVisualStyleBackColor = false;
-            this.btnAdminProfile.Click += new System.EventHandler(this.btnAdminProfile_Click);
+            this.btnUserProfile.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.btnUserProfile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUserProfile.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUserProfile.ForeColor = System.Drawing.Color.Black;
+            this.btnUserProfile.Location = new System.Drawing.Point(253, 389);
+            this.btnUserProfile.Margin = new System.Windows.Forms.Padding(4);
+            this.btnUserProfile.Name = "btnUserProfile";
+            this.btnUserProfile.Size = new System.Drawing.Size(267, 62);
+            this.btnUserProfile.TabIndex = 2;
+            this.btnUserProfile.Text = "Update Any User Profile\r\n";
+            this.btnUserProfile.UseVisualStyleBackColor = false;
+            this.btnUserProfile.Click += new System.EventHandler(this.btnAdminProfile_Click);
             // 
             // btnViewEWallet
             // 
@@ -132,7 +132,7 @@
             this.Controls.Add(this.btnAdminLogout);
             this.Controls.Add(this.lblAdminWelcome);
             this.Controls.Add(this.btnViewEWallet);
-            this.Controls.Add(this.btnAdminProfile);
+            this.Controls.Add(this.btnUserProfile);
             this.Controls.Add(this.btnSalesReport);
             this.Controls.Add(this.btnManageUsers);
             this.Name = "formAdminDashboard";
@@ -148,7 +148,7 @@
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Button btnManageUsers;
         private System.Windows.Forms.Button btnSalesReport;
-        private System.Windows.Forms.Button btnAdminProfile;
+        private System.Windows.Forms.Button btnUserProfile;
         private System.Windows.Forms.Button btnViewEWallet;
         private System.Windows.Forms.Label lblAdminWelcome;
         private System.Windows.Forms.Button btnAdminLogout;

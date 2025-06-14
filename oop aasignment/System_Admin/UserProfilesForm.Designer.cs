@@ -1,6 +1,6 @@
 ﻿namespace oop_aasignment
 {
-    partial class formUserProfiles
+    partial class UserProfilesForm
     {
         /// <summary>
         /// Required designer variable.
@@ -33,6 +33,7 @@
             this.btnManager = new System.Windows.Forms.Button();
             this.btnChef = new System.Windows.Forms.Button();
             this.btnCustomers = new System.Windows.Forms.Button();
+            this.btnGoBack = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblProfileUpdate
@@ -40,12 +41,12 @@
             this.lblProfileUpdate.AutoSize = true;
             this.lblProfileUpdate.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblProfileUpdate.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblProfileUpdate.Location = new System.Drawing.Point(257, 43);
+            this.lblProfileUpdate.Location = new System.Drawing.Point(264, 55);
             this.lblProfileUpdate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblProfileUpdate.Name = "lblProfileUpdate";
-            this.lblProfileUpdate.Size = new System.Drawing.Size(406, 37);
+            this.lblProfileUpdate.Size = new System.Drawing.Size(428, 37);
             this.lblProfileUpdate.TabIndex = 4;
-            this.lblProfileUpdate.Text = "Choose User Profile to Update\r\n";
+            this.lblProfileUpdate.Text = "Choose a User Profile to Update\r\n";
             this.lblProfileUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnSystemAdmin
@@ -54,13 +55,14 @@
             this.btnSystemAdmin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSystemAdmin.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSystemAdmin.ForeColor = System.Drawing.Color.Black;
-            this.btnSystemAdmin.Location = new System.Drawing.Point(327, 112);
+            this.btnSystemAdmin.Location = new System.Drawing.Point(327, 145);
             this.btnSystemAdmin.Margin = new System.Windows.Forms.Padding(4);
             this.btnSystemAdmin.Name = "btnSystemAdmin";
             this.btnSystemAdmin.Size = new System.Drawing.Size(267, 62);
             this.btnSystemAdmin.TabIndex = 5;
             this.btnSystemAdmin.Text = "System Admin Profile";
             this.btnSystemAdmin.UseVisualStyleBackColor = false;
+            this.btnSystemAdmin.Click += new System.EventHandler(this.btnSystemAdmin_Click);
             // 
             // btnManager
             // 
@@ -68,7 +70,7 @@
             this.btnManager.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnManager.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnManager.ForeColor = System.Drawing.Color.Black;
-            this.btnManager.Location = new System.Drawing.Point(327, 203);
+            this.btnManager.Location = new System.Drawing.Point(327, 225);
             this.btnManager.Margin = new System.Windows.Forms.Padding(4);
             this.btnManager.Name = "btnManager";
             this.btnManager.Size = new System.Drawing.Size(267, 62);
@@ -82,7 +84,7 @@
             this.btnChef.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnChef.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnChef.ForeColor = System.Drawing.Color.Black;
-            this.btnChef.Location = new System.Drawing.Point(327, 304);
+            this.btnChef.Location = new System.Drawing.Point(327, 314);
             this.btnChef.Margin = new System.Windows.Forms.Padding(4);
             this.btnChef.Name = "btnChef";
             this.btnChef.Size = new System.Drawing.Size(267, 62);
@@ -104,12 +106,28 @@
             this.btnCustomers.Text = "Customer Profiles";
             this.btnCustomers.UseVisualStyleBackColor = false;
             // 
+            // btnGoBack
+            // 
+            this.btnGoBack.BackColor = System.Drawing.Color.IndianRed;
+            this.btnGoBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGoBack.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGoBack.ForeColor = System.Drawing.Color.White;
+            this.btnGoBack.Location = new System.Drawing.Point(735, 422);
+            this.btnGoBack.Margin = new System.Windows.Forms.Padding(4);
+            this.btnGoBack.Name = "btnGoBack";
+            this.btnGoBack.Size = new System.Drawing.Size(133, 43);
+            this.btnGoBack.TabIndex = 9;
+            this.btnGoBack.Text = "Go Back";
+            this.btnGoBack.UseVisualStyleBackColor = false;
+            this.btnGoBack.Click += new System.EventHandler(this.btnGoBack_Click);
+            // 
             // formUserProfiles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkOrange;
             this.ClientSize = new System.Drawing.Size(920, 514);
+            this.Controls.Add(this.btnGoBack);
             this.Controls.Add(this.btnCustomers);
             this.Controls.Add(this.btnChef);
             this.Controls.Add(this.btnManager);
@@ -129,5 +147,6 @@
         private System.Windows.Forms.Button btnManager;
         private System.Windows.Forms.Button btnChef;
         private System.Windows.Forms.Button btnCustomers;
+        private System.Windows.Forms.Button btnGoBack;
     }
 }
