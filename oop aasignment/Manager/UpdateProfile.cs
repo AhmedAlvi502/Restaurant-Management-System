@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -50,6 +51,12 @@ namespace oop_aasignment
             if (string.IsNullOrWhiteSpace(email) || !email.Contains("@") || !email.Contains("."))
             {
                 MessageBox.Show("Please enter a valid email address.");
+                return;
+            }
+
+            if (!Regex.IsMatch(txtPhone.Text, @"^\d+$"))
+            {
+                MessageBox.Show("Phone Number must contain only numbers.");
                 return;
             }
 
@@ -104,8 +111,6 @@ namespace oop_aasignment
 
         private void btnGoBack_Click(object sender, EventArgs e)
         {
-            ManagerDashboard dash = new ManagerDashboard(userId);
-            dash.Show();
             this.Close();
         }
 

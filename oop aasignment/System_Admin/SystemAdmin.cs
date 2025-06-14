@@ -29,7 +29,7 @@ namespace oop_aasignment
                 }
             }
         }
-        
+
 
         public DataTable GenerateSalesReport(
         ComboBox cmbCategory,
@@ -48,7 +48,7 @@ namespace oop_aasignment
             // For Category and Chef
             string selectedCategory = cmbCategory.SelectedItem?.ToString();
             string selectedChef = cmbChef.SelectedItem?.ToString();
-            
+
 
             // For Month and Year (assuming they contain integer objects like 5, 2025)
             // Use null-conditional operator for SelectedItem, then cast to nullable int (int?)
@@ -140,12 +140,65 @@ namespace oop_aasignment
                     catch (Exception ex)
                     {
                         Console.WriteLine("General Error: " + ex.Message);
-                         MessageBox.Show("An unexpected error occurred: " + ex.Message, "Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
+                        MessageBox.Show("An unexpected error occurred: " + ex.Message, "Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
                     }
                 }
             }
             return dt;
         }
 
-    }   
+        //Form : UserProfile
+        //GetUserProfile        //logic for database
+        public DataTable GetAdminProfile(int userId)
+        {
+            using (SqlConnection myDB = new SqlConnection(myconn))
+            {
+                string query = "SELECT full_name, email, phone_number, password FROM users WHERE user_id = @userId";
+                SqlCommand cmd = new SqlCommand(query, myDB);
+                cmd.Parameters.AddWithValue("@userId", userId);
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                return dt;
+            }
+        }
+
+        public string AddUser( string name, string email, string phone, string password, string role)
+        {
+            try // Start of the try block
+            {
+                using (SqlConnection myDB = new SqlConnection(myconn))
+                {
+                    myDB.Open(); // Attempt to open the database connection
+
+                    SqlCommand cmd = new SqlCommand();
+                    cmd.Connection = myDB;
+                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandText = @"INSERT INTO USERS (full_name, email, phone_number, password, user_role)
+                                 Values (@name,@Email,@Phone,@Password,@User)";
+
+                    cmd.Parameters.AddWithValue("@name", name);
+                    cmd.Parameters.AddWithValue("@Email", email);
+                    cmd.Parameters.AddWithValue("@Phone", phone);
+                    cmd.Parameters.AddWithValue("@Password", password);
+                    cmd.Parameters.AddWithValue("@User", role);
+
+                    int rows = cmd.ExecuteNonQuery(); // Attempt to execute the SQL command
+
+                    return rows > 0 ? "User Added successfully." : "Operation failed. Could not add User.";
+                }
+            }
+            catch (SqlException ex) // Catch specific SQL-related exceptions
+            {
+                Console.WriteLine($"Database error occurred: {ex.Message}");
+                return $"Database operation failed: {ex.Message}"; // Return a user-friendly error message
+            }
+            catch (Exception ex) // Catch any other general exceptions
+            {
+                // Log the exception details
+                Console.WriteLine($"An unexpected error occurred: {ex.Message}");
+                return $"An unexpected error occurred: {ex.Message}"; // Return a general error message
+            }
+        }
+    }
 }

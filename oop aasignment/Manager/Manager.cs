@@ -13,16 +13,8 @@ namespace oop_aasignment
 {
     class Manager
     {
-        public int ManagerId { get; set; }
-        public string FullName { get; set; }
-        public string Email { get; set; }
-        public string Password { get; set; }
-        public string PhoneNumber { get; set; }
 
         private string connectionString = "Data Source=localhost;Initial Catalog=SadapMakanDB;Integrated Security=True;";
-
-
-
 
         // Form : ManagerDashboard
         // GetManagerName        //logic for database
@@ -98,7 +90,7 @@ namespace oop_aasignment
 
         public DataTable GetCustomer_TOPUP()
 {
-    using (SqlConnection conn = new SqlConnection(connectionString))
+        using (SqlConnection conn = new SqlConnection(connectionString))
     {
         string query = "SELECT user_id, full_name FROM users WHERE user_role = 'customer'";
         SqlDataAdapter adapter = new SqlDataAdapter(query, conn);
@@ -136,9 +128,7 @@ namespace oop_aasignment
         //Respond to Feedbacks        //logic for database
         public void RespondToFeedback(int feedbackId, string response, int managerId)
         {
-            string connStr = ConfigurationManager.ConnectionStrings["SadapMakanDB"].ConnectionString;
-
-            using (SqlConnection conn = new SqlConnection(connStr))
+            using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
 
@@ -168,9 +158,8 @@ namespace oop_aasignment
         }
         public DataTable GetNewFeedbacks()
         {
-            string connStr = ConfigurationManager.ConnectionStrings["SadapMakanDB"].ConnectionString;
 
-            using (SqlConnection conn = new SqlConnection(connStr))
+            using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 string query = "SELECT feedback_id, message FROM Feedback WHERE status = 'New'";
                 SqlDataAdapter adapter = new SqlDataAdapter(query, conn);
@@ -185,8 +174,7 @@ namespace oop_aasignment
         //GetUserProfile        //logic for database
         public DataTable GetUserProfile(int userId)
         {
-            string connStr = ConfigurationManager.ConnectionStrings["SadapMakanDB"].ConnectionString;
-            using (SqlConnection conn = new SqlConnection(connStr))
+            using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 string query = "SELECT full_name, email, phone_number, password FROM users WHERE user_id = @userId";
                 SqlCommand cmd = new SqlCommand(query, conn);
@@ -209,9 +197,8 @@ namespace oop_aasignment
         //Process Refund Requests        //logic for database
         public void ProcessRefund(int refundId, string status, int managerId)
         {
-            string connStr = ConfigurationManager.ConnectionStrings["SadapMakanDB"].ConnectionString;
 
-            using (SqlConnection conn = new SqlConnection(connStr))
+            using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
                 using (SqlCommand cmd = new SqlCommand(@"
@@ -234,9 +221,8 @@ namespace oop_aasignment
         ////GetPendingRefunds        //logic for database
         public DataTable GetPendingRefunds()
         {
-            string connStr = ConfigurationManager.ConnectionStrings["SadapMakanDB"].ConnectionString;
 
-            using (SqlConnection conn = new SqlConnection(connStr))
+            using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 string query = @"
                   SELECT 
@@ -255,9 +241,8 @@ namespace oop_aasignment
         // GetRefundReason        //logic for database
         public string GetRefundReason(int refundId)
         {
-            string connStr = ConfigurationManager.ConnectionStrings["SadapMakanDB"].ConnectionString;
 
-            using (SqlConnection conn = new SqlConnection(connStr))
+            using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
                 using (SqlCommand cmd = new SqlCommand("SELECT reason FROM refund_requests WHERE refund_id = @refundId", conn))

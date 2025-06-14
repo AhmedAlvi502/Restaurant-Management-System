@@ -288,6 +288,18 @@
     <Compile Include="SignUpFrom.Designer.cs">
       <DependentUpon>SignUpFrom.cs</DependentUpon>
     </Compile>
+    <Compile Include="System_Admin\formAddUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="System_Admin\formAddUser.Designer.cs">
+      <DependentUpon>formAddUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="System_Admin\formManageUsers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="System_Admin\formManageUsers.Designer.cs">
+      <DependentUpon>formManageUsers.cs</DependentUpon>
+    </Compile>
     <Compile Include="System_Admin\UserProfilesForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -402,6 +414,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Chef\ViewOrdersForm.resx">
       <DependentUpon>ViewOrdersForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="System_Admin\formAddUser.resx">
+      <DependentUpon>formAddUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="System_Admin\formManageUsers.resx">
+      <DependentUpon>formManageUsers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="System_Admin\UserProfilesForm.resx">
       <DependentUpon>UserProfilesForm.cs</DependentUpon>

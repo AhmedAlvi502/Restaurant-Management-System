@@ -42,12 +42,6 @@ namespace oop_aasignment
         // Update button: validate inputs and save changes
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            // Validate full name: only letters and spaces
-            if (!Regex.IsMatch(txtName.Text, @"^[a-zA-Z\s]+$"))
-            {
-                MessageBox.Show("Full Name must contain only letters.");
-                return;
-            }
 
             // Validate phone number: digits only
             if (!Regex.IsMatch(txtPhone.Text, @"^\d+$"))

@@ -77,6 +77,7 @@
             this.btnManager.TabIndex = 6;
             this.btnManager.Text = "Manager Profile";
             this.btnManager.UseVisualStyleBackColor = false;
+            this.btnManager.Click += new System.EventHandler(this.btnManager_Click);
             // 
             // btnChef
             // 
@@ -91,6 +92,7 @@
             this.btnChef.TabIndex = 7;
             this.btnChef.Text = "Chef Profile";
             this.btnChef.UseVisualStyleBackColor = false;
+            this.btnChef.Click += new System.EventHandler(this.btnChef_Click);
             // 
             // btnCustomers
             // 
@@ -105,6 +107,7 @@
             this.btnCustomers.TabIndex = 8;
             this.btnCustomers.Text = "Customer Profiles";
             this.btnCustomers.UseVisualStyleBackColor = false;
+            this.btnCustomers.Click += new System.EventHandler(this.btnCustomers_Click);
             // 
             // btnGoBack
             // 
@@ -121,7 +124,7 @@
             this.btnGoBack.UseVisualStyleBackColor = false;
             this.btnGoBack.Click += new System.EventHandler(this.btnGoBack_Click);
             // 
-            // formUserProfiles
+            // UserProfilesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -133,7 +136,7 @@
             this.Controls.Add(this.btnManager);
             this.Controls.Add(this.btnSystemAdmin);
             this.Controls.Add(this.lblProfileUpdate);
-            this.Name = "formUserProfiles";
+            this.Name = "UserProfilesForm";
             this.Text = "User Profiles";
             this.ResumeLayout(false);
             this.PerformLayout();

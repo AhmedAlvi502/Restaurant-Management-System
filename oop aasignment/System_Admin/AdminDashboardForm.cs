@@ -1,4 +1,5 @@
-﻿using System;
+﻿using oop_aasignment.System_Admin;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -56,7 +57,9 @@ namespace oop_aasignment
 
         private void btnManageUsers_Click(object sender, EventArgs e)
         {
-
+            formManageUsers pageManageUsers = new formManageUsers();
+            pageManageUsers.FormClosed += (s, args) => this.Show();
+            pageManageUsers.Show();
         }
     }
 }
