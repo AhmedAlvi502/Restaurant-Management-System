@@ -53,5 +53,10 @@ namespace oop_aasignment
             pageSalesView.FormClosed += (s, args) => this.Show();
             pageSalesView.Show();
         }
+
+        private void btnManageUsers_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
