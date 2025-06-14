@@ -169,6 +169,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="formViewEWallet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formViewEWallet.Designer.cs">
+      <DependentUpon>formViewEWallet.cs</DependentUpon>
+    </Compile>
     <Compile Include="System_Admin\AdminDashboardForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -344,6 +350,9 @@
     <Compile Include="System_Admin\ViewSalesForm.Designer.cs">
       <DependentUpon>ViewSalesForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="formViewEWallet.resx">
+      <DependentUpon>formViewEWallet.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="System_Admin\AdminDashboardForm.resx">
       <DependentUpon>AdminDashboardForm.cs</DependentUpon>
     </EmbeddedResource>
