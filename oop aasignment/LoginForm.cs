@@ -1,4 +1,4 @@
-﻿using System.Windows.Forms;
+﻿using SedapmakanCustomer;
 using System;
 using System;
 using System.Collections.Generic;
@@ -8,6 +8,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using System.Windows.Forms;
 
 
@@ -201,7 +202,10 @@ namespace oop_aasignment
 
                         case "customer":
                             CustomerDashboardForm customerForm = new CustomerDashboardForm(userId);
+                            Session.UserId = userId;
+                            Session.UserPassword = password;
                             customerForm.Show();
+
                             break;
 
                         default:

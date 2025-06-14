@@ -71,6 +71,13 @@ namespace oop_aasignment
                 return;
             }
 
+            if (string.IsNullOrWhiteSpace(txtPhone.Text) || txtPhone.Text.Length < 8)
+            {
+                MessageBox.Show("Please enter a valid phone number (minimum 8 digits).");
+                return;
+            }
+
+
             string result = user.UpdateProfile(
               chefId,
               txtName.Text,

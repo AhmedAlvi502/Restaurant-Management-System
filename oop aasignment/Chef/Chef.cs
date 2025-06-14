@@ -124,26 +124,9 @@ public class Chef : User
 
     // ============================
     // ORDER METHODS
-    // ============================
+    // ============================    
 
-    /// <summary>
-    /// Retrieves all customer orders.
-    /// </summary>
-    public DataTable GetOrders()
-    {
-        using (SqlConnection con = new SqlConnection(connectionString))
-        {
-            string query = @"SELECT o.order_id, o.order_time AS order_date, o.status, u.full_name AS CustomerName
-                             FROM orders o
-                             JOIN users u ON o.user_id = u.user_id";
-            SqlDataAdapter da = new SqlDataAdapter(query, con);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            return dt;
-        }
-    }
-
-    // ✅ ADDED FOR CHEF ORDER VIEW
+   
     /// <summary>
     /// Gets orders filtered by a specific category for the chef.
     /// Only shows items from that category.
@@ -217,19 +200,7 @@ public class Chef : User
     /// <summary>
     /// Gets the chef's user ID after login (used for verification).
     /// </summary>
-    public int GetChefIdByLogin(string email, string password)
-    {
-        using (SqlConnection con = new SqlConnection(connectionString))
-        {
-            string query = "SELECT user_id FROM users WHERE email = @mail AND password = @pass AND user_role = 'chef'";
-            SqlCommand cmd = new SqlCommand(query, con);
-            cmd.Parameters.AddWithValue("@mail", email);
-            cmd.Parameters.AddWithValue("@pass", password);
-            con.Open();
-            object result = cmd.ExecuteScalar();
-            return result != null ? Convert.ToInt32(result) : -1;
-        }
-    }
+    
 
     /// <summary>
     /// Retrieves the chef's profile data for editing.

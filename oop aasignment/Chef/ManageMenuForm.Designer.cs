@@ -59,7 +59,6 @@ namespace oop_aasignment
             this.dgvMenuItems.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvMenuItems.Size = new System.Drawing.Size(720, 237);
             this.dgvMenuItems.TabIndex = 0;
-            this.dgvMenuItems.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMenuItems_CellContentClick);
             // 
             // lblName
             // 
@@ -76,7 +75,6 @@ namespace oop_aasignment
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(200, 20);
             this.txtName.TabIndex = 2;
-            this.txtName.TextChanged += new System.EventHandler(this.txtName_TextChanged);
             this.txtName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtName_KeyPress);
             // 
             // lblCategory
@@ -100,7 +98,6 @@ namespace oop_aasignment
             this.cmbCategory.Name = "cmbCategory";
             this.cmbCategory.Size = new System.Drawing.Size(200, 21);
             this.cmbCategory.TabIndex = 4;
-            this.cmbCategory.SelectedIndexChanged += new System.EventHandler(this.cmbCategory_SelectedIndexChanged);
             // 
             // lblAvailability
             // 
@@ -121,8 +118,7 @@ namespace oop_aasignment
             this.cmbAvailability.Name = "cmbAvailability";
             this.cmbAvailability.Size = new System.Drawing.Size(200, 21);
             this.cmbAvailability.TabIndex = 6;
-            this.cmbAvailability.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-            // 
+            //
             // lblPrice
             // 
             this.lblPrice.AutoSize = true;
@@ -138,7 +134,6 @@ namespace oop_aasignment
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(200, 20);
             this.txtPrice.TabIndex = 8;
-            this.txtPrice.TextChanged += new System.EventHandler(this.txtPrice_TextChanged);
             this.txtPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrice_KeyPress);
             // 
             // btnAdd

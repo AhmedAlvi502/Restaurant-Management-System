@@ -63,9 +63,7 @@ namespace oop_aasignment
         {
             this.Close();
         }
-
-        private void cmbStatus_SelectedIndexChanged(object sender, EventArgs e) { }
-        private void dvgOrders_CellContentClick(object sender, DataGridViewCellEventArgs e) { }
+        
 
 
         private void dgvOrders_CellClick(object sender, DataGridViewCellEventArgs e)
