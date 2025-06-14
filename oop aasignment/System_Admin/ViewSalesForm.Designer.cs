@@ -41,9 +41,9 @@
             this.sqlCommandBuilder1 = new System.Data.SqlClient.SqlCommandBuilder();
             this.btnExitViewer = new System.Windows.Forms.Button();
             this.salesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.salesDataGridView = new System.Windows.Forms.DataGridView();
             this.btnClearFields = new System.Windows.Forms.Button();
             this.btnGenReport = new System.Windows.Forms.Button();
+            this.salesDataGridView = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.salesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.salesDataGridView)).BeginInit();
             this.SuspendLayout();
@@ -173,18 +173,6 @@
             this.btnExitViewer.UseVisualStyleBackColor = false;
             this.btnExitViewer.Click += new System.EventHandler(this.button1_Click);
             // 
-            // salesDataGridView
-            // 
-            this.salesDataGridView.AutoGenerateColumns = false;
-            this.salesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.salesDataGridView.DataSource = this.salesBindingSource;
-            this.salesDataGridView.Location = new System.Drawing.Point(32, 196);
-            this.salesDataGridView.Name = "salesDataGridView";
-            this.salesDataGridView.RowHeadersWidth = 51;
-            this.salesDataGridView.RowTemplate.Height = 24;
-            this.salesDataGridView.Size = new System.Drawing.Size(942, 264);
-            this.salesDataGridView.TabIndex = 15;
-            // 
             // btnClearFields
             // 
             this.btnClearFields.BackColor = System.Drawing.Color.IndianRed;
@@ -210,15 +198,25 @@
             this.btnGenReport.UseVisualStyleBackColor = false;
             this.btnGenReport.Click += new System.EventHandler(this.btnGenReport_Click);
             // 
+            // salesDataGridView
+            // 
+            this.salesDataGridView.ColumnHeadersHeight = 29;
+            this.salesDataGridView.Location = new System.Drawing.Point(35, 205);
+            this.salesDataGridView.Name = "salesDataGridView";
+            this.salesDataGridView.RowHeadersWidth = 51;
+            this.salesDataGridView.RowTemplate.Height = 24;
+            this.salesDataGridView.Size = new System.Drawing.Size(924, 261);
+            this.salesDataGridView.TabIndex = 18;
+            // 
             // formSalesView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkOrange;
             this.ClientSize = new System.Drawing.Size(999, 586);
+            this.Controls.Add(this.salesDataGridView);
             this.Controls.Add(this.btnGenReport);
             this.Controls.Add(this.btnClearFields);
-            this.Controls.Add(this.salesDataGridView);
             this.Controls.Add(this.btnExitViewer);
             this.Controls.Add(this.lblCategory);
             this.Controls.Add(this.lblChef);
@@ -250,11 +248,9 @@
         private System.Windows.Forms.Label lblChef;
         private System.Windows.Forms.Label lblCategory;
         private System.Windows.Forms.BindingSource sedapMakanSalesBindingSource;
-        //private SedapMakanSales sedapMakanSales;
         private System.Windows.Forms.BindingSource salesBindingSource;
         private System.Data.SqlClient.SqlCommandBuilder sqlCommandBuilder1;
         private System.Windows.Forms.Button btnExitViewer;
-        private System.Windows.Forms.DataGridView salesDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
@@ -265,5 +261,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
         private System.Windows.Forms.Button btnClearFields;
         private System.Windows.Forms.Button btnGenReport;
+        private System.Windows.Forms.DataGridView salesDataGridView;
     }
 }

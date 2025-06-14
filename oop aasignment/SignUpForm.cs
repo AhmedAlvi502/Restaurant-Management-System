@@ -5,9 +5,9 @@ using System.Windows.Forms;
 
 namespace oop_aasignment
 {
-    public partial class SignUpFrom : Form
+    public partial class SignUpForm : Form
     {
-        public SignUpFrom()
+        public SignUpForm()
         {
             InitializeComponent();
             LoadSecretQuestions();

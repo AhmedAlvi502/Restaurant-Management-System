@@ -57,6 +57,7 @@ namespace oop_aasignment
 
         private void btnManageUsers_Click(object sender, EventArgs e)
         {
+            this.Hide();
             formManageUsers pageManageUsers = new formManageUsers();
             pageManageUsers.FormClosed += (s, args) => this.Show();
             pageManageUsers.Show();
