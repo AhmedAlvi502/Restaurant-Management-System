@@ -61,7 +61,7 @@
             this.lblTitle.Location = new System.Drawing.Point(13, 9);
             this.lblTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(394, 30);
+            this.lblTitle.Size = new System.Drawing.Size(516, 37);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "\"Welcome to SedapMakan Restaurant\"";
             this.lblTitle.Click += new System.EventHandler(this.lblTitle_Click);
@@ -74,7 +74,7 @@
             this.lblEmail.Location = new System.Drawing.Point(10, 10);
             this.lblEmail.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(39, 15);
+            this.lblEmail.Size = new System.Drawing.Size(48, 20);
             this.lblEmail.TabIndex = 1;
             this.lblEmail.Text = "Email:";
             this.lblEmail.Click += new System.EventHandler(this.lblUsername_Click);
@@ -86,7 +86,7 @@
             this.txtEmail.Location = new System.Drawing.Point(80, 10);
             this.txtEmail.Margin = new System.Windows.Forms.Padding(4);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(200, 18);
+            this.txtEmail.Size = new System.Drawing.Size(200, 22);
             this.txtEmail.TabIndex = 2;
             // 
             // lblPassword
@@ -97,7 +97,7 @@
             this.lblPassword.Location = new System.Drawing.Point(-1, 10);
             this.lblPassword.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(75, 15);
+            this.lblPassword.Size = new System.Drawing.Size(98, 20);
             this.lblPassword.TabIndex = 3;
             this.lblPassword.Text = "🔒 Password:";
             // 
@@ -109,7 +109,7 @@
             this.txtPassword.Margin = new System.Windows.Forms.Padding(4);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
-            this.txtPassword.Size = new System.Drawing.Size(180, 18);
+            this.txtPassword.Size = new System.Drawing.Size(180, 22);
             this.txtPassword.TabIndex = 4;
             this.txtPassword.TextChanged += new System.EventHandler(this.txtPassword_TextChanged);
             // 
@@ -132,7 +132,7 @@
             this.lnkSignUP.AutoSize = true;
             this.lnkSignUP.Location = new System.Drawing.Point(267, 389);
             this.lnkSignUP.Name = "lnkSignUP";
-            this.lnkSignUP.Size = new System.Drawing.Size(54, 17);
+            this.lnkSignUP.Size = new System.Drawing.Size(70, 23);
             this.lnkSignUP.TabIndex = 12;
             this.lnkSignUP.TabStop = true;
             this.lnkSignUP.Text = "Sign Up";
@@ -143,7 +143,7 @@
             this.lnkForgotPass.AutoSize = true;
             this.lnkForgotPass.Location = new System.Drawing.Point(72, 205);
             this.lnkForgotPass.Name = "lnkForgotPass";
-            this.lnkForgotPass.Size = new System.Drawing.Size(135, 17);
+            this.lnkForgotPass.Size = new System.Drawing.Size(171, 23);
             this.lnkForgotPass.TabIndex = 13;
             this.lnkForgotPass.TabStop = true;
             this.lnkForgotPass.Text = "🔒 Forgot Password?";
@@ -167,7 +167,7 @@
             this.lnkNeedHelp.AutoSize = true;
             this.lnkNeedHelp.Location = new System.Drawing.Point(276, 205);
             this.lnkNeedHelp.Name = "lnkNeedHelp";
-            this.lnkNeedHelp.Size = new System.Drawing.Size(99, 17);
+            this.lnkNeedHelp.Size = new System.Drawing.Size(127, 23);
             this.lnkNeedHelp.TabIndex = 15;
             this.lnkNeedHelp.TabStop = true;
             this.lnkNeedHelp.Text = "🆘 Need Help?";
@@ -220,7 +220,7 @@
             this.lblDontHaveAccount.Location = new System.Drawing.Point(85, 387);
             this.lblDontHaveAccount.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDontHaveAccount.Name = "lblDontHaveAccount";
-            this.lblDontHaveAccount.Size = new System.Drawing.Size(175, 20);
+            this.lblDontHaveAccount.Size = new System.Drawing.Size(224, 25);
             this.lblDontHaveAccount.TabIndex = 17;
             this.lblDontHaveAccount.Text = "Don\'t have an account ?";
             this.lblDontHaveAccount.Click += new System.EventHandler(this.label1_Click);
@@ -245,7 +245,7 @@
             "Malay"});
             this.ComboLanguage.Location = new System.Drawing.Point(75, 56);
             this.ComboLanguage.Name = "ComboLanguage";
-            this.ComboLanguage.Size = new System.Drawing.Size(300, 25);
+            this.ComboLanguage.Size = new System.Drawing.Size(300, 29);
             this.ComboLanguage.TabIndex = 20;
             this.ComboLanguage.Tag = "";
             this.ComboLanguage.SelectedIndexChanged += new System.EventHandler(this.comboLanguage_SelectedIndexChanged);
@@ -276,7 +276,7 @@
             // 
             // LoginForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkOrange;
             this.ClientSize = new System.Drawing.Size(959, 455);

@@ -234,7 +234,6 @@
             this.pnlSecurity.Size = new System.Drawing.Size(545, 360);
             this.pnlSecurity.TabIndex = 14;
             this.pnlSecurity.Visible = false;
-            this.pnlSecurity.Paint += new System.Windows.Forms.PaintEventHandler(this.btnCancelSecurity_Paint);
             // 
             // label3
             // 
