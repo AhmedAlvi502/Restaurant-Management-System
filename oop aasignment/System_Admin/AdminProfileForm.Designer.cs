@@ -1,6 +1,6 @@
 ﻿namespace oop_aasignment
 {
-    partial class AdminProfileForm
+    partial class formAdminProfile
     {
         /// <summary>
         /// Required designer variable.
@@ -194,7 +194,7 @@
             this.lblAdminName.TabIndex = 29;
             this.lblAdminName.Text = "Full Name:";
             // 
-            // AdminProfileForm
+            // formAdminProfile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -214,8 +214,8 @@
             this.Controls.Add(this.txtAdminName);
             this.Controls.Add(this.lblAdminName);
             this.Controls.Add(this.lblAdminProfile);
-            this.Name = "AdminProfileForm";
-            this.Text = "AdminProfileForm";
+            this.Name = "formAdminProfile";
+            this.Text = "Admin Profile";
             this.ResumeLayout(false);
             this.PerformLayout();
 

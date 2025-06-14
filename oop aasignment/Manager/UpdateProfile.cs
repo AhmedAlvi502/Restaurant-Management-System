@@ -56,7 +56,7 @@ namespace oop_aasignment
             // ✅ Phone
             if (string.IsNullOrWhiteSpace(phone) || phone.Length < 8 || !phone.All(char.IsDigit))
             {
-                MessageBox.Show("Please enter a valid phone number (digits only).");
+                MessageBox.Show("Please enter a valid phone number (minimum 8 digits).");
                 return;
             }
 

@@ -169,16 +169,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="SystemAdmin\AdminDashboardForm.cs">
+    <Compile Include="System_Admin\AdminDashboardForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SystemAdmin\AdminDashboardForm.Designer.cs">
+    <Compile Include="System_Admin\AdminDashboardForm.Designer.cs">
       <DependentUpon>AdminDashboardForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="SystemAdmin\AdminProfileForm.cs">
+    <Compile Include="System_Admin\AdminProfileForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SystemAdmin\AdminProfileForm.Designer.cs">
+    <Compile Include="System_Admin\AdminProfileForm.Designer.cs">
       <DependentUpon>AdminProfileForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Customer\CartItem.cs" />
@@ -292,7 +292,13 @@
     <Compile Include="SignUpFrom.Designer.cs">
       <DependentUpon>SignUpFrom.cs</DependentUpon>
     </Compile>
-    <Compile Include="SystemAdmin\SystemAdmin.cs" />
+    <Compile Include="System_Admin\UserProfilesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="System_Admin\UserProfilesForm.Designer.cs">
+      <DependentUpon>UserProfilesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="System_Admin\SystemAdmin.cs" />
     <Compile Include="Manager\TopUp.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -324,16 +330,16 @@
     <Compile Include="Chef\ViewOrdersForm.Designer.cs">
       <DependentUpon>ViewOrdersForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="SystemAdmin\ViewSalesForm.cs">
+    <Compile Include="System_Admin\ViewSalesForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SystemAdmin\ViewSalesForm.Designer.cs">
+    <Compile Include="System_Admin\ViewSalesForm.Designer.cs">
       <DependentUpon>ViewSalesForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="SystemAdmin\AdminDashboardForm.resx">
+    <EmbeddedResource Include="System_Admin\AdminDashboardForm.resx">
       <DependentUpon>AdminDashboardForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SystemAdmin\AdminProfileForm.resx">
+    <EmbeddedResource Include="System_Admin\AdminProfileForm.resx">
       <DependentUpon>AdminProfileForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Customer\CustomerDashboardForm.resx">
@@ -402,7 +408,10 @@
     <EmbeddedResource Include="Chef\ViewOrdersForm.resx">
       <DependentUpon>ViewOrdersForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SystemAdmin\ViewSalesForm.resx">
+    <EmbeddedResource Include="System_Admin\UserProfilesForm.resx">
+      <DependentUpon>UserProfilesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="System_Admin\ViewSalesForm.resx">
       <DependentUpon>ViewSalesForm.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace oop_aasignment
 {
-    public partial class AdminProfileForm : Form
+    public partial class formAdminProfile : Form
     {
-        public AdminProfileForm()
+        public formAdminProfile()
         {
             InitializeComponent();
         }
