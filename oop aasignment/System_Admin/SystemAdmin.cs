@@ -29,7 +29,7 @@ namespace oop_aasignment
                 }
             }
         }
-        
+
 
         public DataTable GenerateSalesReport(
         ComboBox cmbCategory,
@@ -48,7 +48,7 @@ namespace oop_aasignment
             // For Category and Chef
             string selectedCategory = cmbCategory.SelectedItem?.ToString();
             string selectedChef = cmbChef.SelectedItem?.ToString();
-            
+
 
             // For Month and Year (assuming they contain integer objects like 5, 2025)
             // Use null-conditional operator for SelectedItem, then cast to nullable int (int?)
@@ -140,12 +140,27 @@ namespace oop_aasignment
                     catch (Exception ex)
                     {
                         Console.WriteLine("General Error: " + ex.Message);
-                         MessageBox.Show("An unexpected error occurred: " + ex.Message, "Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
+                        MessageBox.Show("An unexpected error occurred: " + ex.Message, "Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
                     }
                 }
             }
             return dt;
         }
 
-    }   
+        //Form : UserProfile
+        //GetUserProfile        //logic for database
+        public DataTable GetAdminProfile(int userId)
+        {
+            using (SqlConnection myDB = new SqlConnection(myconn))
+            {
+                string query = "SELECT full_name, email, phone_number, password FROM users WHERE user_id = @userId";
+                SqlCommand cmd = new SqlCommand(query, myDB);
+                cmd.Parameters.AddWithValue("@userId", userId);
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                return dt;
+            }
+        }
+    }
 }

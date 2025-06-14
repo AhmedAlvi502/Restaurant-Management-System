@@ -54,9 +54,10 @@
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblTitle.Location = new System.Drawing.Point(140, 20);
+            this.lblTitle.Location = new System.Drawing.Point(187, 25);
+            this.lblTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(155, 30);
+            this.lblTitle.Size = new System.Drawing.Size(205, 37);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "Update Profile";
             // 
@@ -64,33 +65,37 @@
             // 
             this.lblName.AutoSize = true;
             this.lblName.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblName.Location = new System.Drawing.Point(50, 80);
+            this.lblName.Location = new System.Drawing.Point(67, 98);
+            this.lblName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(69, 17);
+            this.lblName.Size = new System.Drawing.Size(91, 23);
             this.lblName.TabIndex = 1;
             this.lblName.Text = "Full Name:";
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(180, 80);
+            this.txtName.Location = new System.Drawing.Point(240, 98);
+            this.txtName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(180, 20);
+            this.txtName.Size = new System.Drawing.Size(239, 22);
             this.txtName.TabIndex = 2;
             // 
             // txtPhone
             // 
-            this.txtPhone.Location = new System.Drawing.Point(180, 188);
+            this.txtPhone.Location = new System.Drawing.Point(240, 231);
+            this.txtPhone.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtPhone.Name = "txtPhone";
-            this.txtPhone.Size = new System.Drawing.Size(180, 20);
+            this.txtPhone.Size = new System.Drawing.Size(239, 22);
             this.txtPhone.TabIndex = 4;
             // 
             // lblPhoneNumber
             // 
             this.lblPhoneNumber.AutoSize = true;
             this.lblPhoneNumber.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPhoneNumber.Location = new System.Drawing.Point(50, 191);
+            this.lblPhoneNumber.Location = new System.Drawing.Point(67, 235);
+            this.lblPhoneNumber.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPhoneNumber.Name = "lblPhoneNumber";
-            this.lblPhoneNumber.Size = new System.Drawing.Size(99, 17);
+            this.lblPhoneNumber.Size = new System.Drawing.Size(131, 23);
             this.lblPhoneNumber.TabIndex = 5;
             this.lblPhoneNumber.Text = "Phone Number:";
             // 
@@ -98,35 +103,39 @@
             // 
             this.lblEmail.AutoSize = true;
             this.lblEmail.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmail.Location = new System.Drawing.Point(50, 134);
+            this.lblEmail.Location = new System.Drawing.Point(67, 165);
+            this.lblEmail.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(42, 17);
+            this.lblEmail.Size = new System.Drawing.Size(55, 23);
             this.lblEmail.TabIndex = 6;
             this.lblEmail.Text = "Email:";
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(180, 131);
+            this.txtEmail.Location = new System.Drawing.Point(240, 161);
+            this.txtEmail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(180, 20);
+            this.txtEmail.Size = new System.Drawing.Size(239, 22);
             this.txtEmail.TabIndex = 7;
             // 
             // lblPassword
             // 
             this.lblPassword.AutoSize = true;
             this.lblPassword.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPassword.Location = new System.Drawing.Point(50, 242);
+            this.lblPassword.Location = new System.Drawing.Point(67, 298);
+            this.lblPassword.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(67, 17);
+            this.lblPassword.Size = new System.Drawing.Size(84, 23);
             this.lblPassword.TabIndex = 8;
             this.lblPassword.Text = "Password:";
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(180, 242);
+            this.txtPassword.Location = new System.Drawing.Point(240, 298);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
-            this.txtPassword.Size = new System.Drawing.Size(180, 20);
+            this.txtPassword.Size = new System.Drawing.Size(239, 22);
             this.txtPassword.TabIndex = 9;
             this.txtPassword.TextChanged += new System.EventHandler(this.txtPassword_TextChanged);
             // 
@@ -134,18 +143,20 @@
             // 
             this.lblConfirmPass.AutoSize = true;
             this.lblConfirmPass.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblConfirmPass.Location = new System.Drawing.Point(52, 290);
+            this.lblConfirmPass.Location = new System.Drawing.Point(69, 357);
+            this.lblConfirmPass.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblConfirmPass.Name = "lblConfirmPass";
-            this.lblConfirmPass.Size = new System.Drawing.Size(117, 17);
+            this.lblConfirmPass.Size = new System.Drawing.Size(150, 23);
             this.lblConfirmPass.TabIndex = 10;
             this.lblConfirmPass.Text = "Confirm Password:";
             // 
             // txtConfirmPass
             // 
-            this.txtConfirmPass.Location = new System.Drawing.Point(180, 290);
+            this.txtConfirmPass.Location = new System.Drawing.Point(240, 357);
+            this.txtConfirmPass.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtConfirmPass.Name = "txtConfirmPass";
             this.txtConfirmPass.PasswordChar = '*';
-            this.txtConfirmPass.Size = new System.Drawing.Size(180, 20);
+            this.txtConfirmPass.Size = new System.Drawing.Size(239, 22);
             this.txtConfirmPass.TabIndex = 11;
             // 
             // btnUpdate
@@ -153,9 +164,10 @@
             this.btnUpdate.BackColor = System.Drawing.Color.LightGreen;
             this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdate.Location = new System.Drawing.Point(180, 338);
+            this.btnUpdate.Location = new System.Drawing.Point(240, 416);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(75, 28);
+            this.btnUpdate.Size = new System.Drawing.Size(100, 34);
             this.btnUpdate.TabIndex = 12;
             this.btnUpdate.Text = "Update Profile";
             this.btnUpdate.UseVisualStyleBackColor = false;
@@ -167,9 +179,10 @@
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClear.ForeColor = System.Drawing.Color.Black;
-            this.btnClear.Location = new System.Drawing.Point(285, 338);
+            this.btnClear.Location = new System.Drawing.Point(380, 416);
+            this.btnClear.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(75, 28);
+            this.btnClear.Size = new System.Drawing.Size(100, 34);
             this.btnClear.TabIndex = 13;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = false;
@@ -180,9 +193,10 @@
             this.btnBackToDashBoard.BackColor = System.Drawing.Color.IndianRed;
             this.btnBackToDashBoard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBackToDashBoard.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnBackToDashBoard.Location = new System.Drawing.Point(12, 367);
+            this.btnBackToDashBoard.Location = new System.Drawing.Point(16, 452);
+            this.btnBackToDashBoard.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnBackToDashBoard.Name = "btnBackToDashBoard";
-            this.btnBackToDashBoard.Size = new System.Drawing.Size(97, 32);
+            this.btnBackToDashBoard.Size = new System.Drawing.Size(129, 39);
             this.btnBackToDashBoard.TabIndex = 28;
             this.btnBackToDashBoard.Text = "Back ";
             this.btnBackToDashBoard.UseVisualStyleBackColor = false;
@@ -194,9 +208,10 @@
             this.butnCashPass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.butnCashPass.ForeColor = System.Drawing.Color.Black;
             this.butnCashPass.Image = ((System.Drawing.Image)(resources.GetObject("butnCashPass.Image")));
-            this.butnCashPass.Location = new System.Drawing.Point(366, 242);
+            this.butnCashPass.Location = new System.Drawing.Point(488, 298);
+            this.butnCashPass.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.butnCashPass.Name = "butnCashPass";
-            this.butnCashPass.Size = new System.Drawing.Size(27, 20);
+            this.butnCashPass.Size = new System.Drawing.Size(36, 25);
             this.butnCashPass.TabIndex = 29;
             this.butnCashPass.UseVisualStyleBackColor = false;
             this.butnCashPass.Click += new System.EventHandler(this.butnCashPass_Click);
@@ -207,9 +222,10 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.ForeColor = System.Drawing.Color.Black;
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(366, 290);
+            this.button1.Location = new System.Drawing.Point(488, 357);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(27, 20);
+            this.button1.Size = new System.Drawing.Size(36, 25);
             this.button1.TabIndex = 30;
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -220,9 +236,10 @@
             this.btnShowPss.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnShowPss.ForeColor = System.Drawing.Color.Transparent;
             this.btnShowPss.Image = ((System.Drawing.Image)(resources.GetObject("btnShowPss.Image")));
-            this.btnShowPss.Location = new System.Drawing.Point(366, 242);
+            this.btnShowPss.Location = new System.Drawing.Point(488, 298);
+            this.btnShowPss.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnShowPss.Name = "btnShowPss";
-            this.btnShowPss.Size = new System.Drawing.Size(27, 20);
+            this.btnShowPss.Size = new System.Drawing.Size(36, 25);
             this.btnShowPss.TabIndex = 31;
             this.btnShowPss.UseVisualStyleBackColor = false;
             this.btnShowPss.Click += new System.EventHandler(this.btnShowPss_Click);
@@ -233,19 +250,20 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.ForeColor = System.Drawing.Color.Transparent;
             this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.Location = new System.Drawing.Point(366, 290);
+            this.button2.Location = new System.Drawing.Point(487, 357);
+            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(27, 20);
+            this.button2.Size = new System.Drawing.Size(36, 25);
             this.button2.TabIndex = 32;
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // UpdateProfileForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkOrange;
-            this.ClientSize = new System.Drawing.Size(514, 430);
+            this.ClientSize = new System.Drawing.Size(685, 529);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.btnShowPss);
             this.Controls.Add(this.button1);
@@ -264,6 +282,7 @@
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.lblTitle);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "UpdateProfileForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "UpdateProfileForm";
