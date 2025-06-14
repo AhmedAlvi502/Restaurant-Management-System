@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data.SqlClient;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace oop_aasignment
@@ -17,24 +12,14 @@ namespace oop_aasignment
             InitializeComponent();
             LoadSecretQuestions();
 
-            btnSignUp.Enabled = false; // Disable sign-up button initially
-            txtFullName.TextChanged += ValidateSignUpInputs;
-            txtEmail.TextChanged += ValidateSignUpInputs;
-            txtPhoneNumber.TextChanged += ValidateSignUpInputs;
-            txtPassword.TextChanged += ValidateSignUpInputs;
-            txtConfirmPass.TextChanged += ValidateSignUpInputs;
-            txtSecretAnswer.TextChanged += ValidateSignUpInputs;
-            cmbSecretQuestion.SelectedIndexChanged += ValidateSignUpInputs;
+            txtFullName.KeyPress += txtFullName_KeyPress;
+            txtPhoneNumber.KeyPress += txtPhoneNumber_KeyPress;
         }
+
         private void LoadSecretQuestions()
         {
-            // Clear old items to avoid duplicates
             cmbSecretQuestion.Items.Clear();
-
-            // Add a default prompt (not selectable if desired)
             cmbSecretQuestion.Items.Add("— Select a question —");
-
-            // Add secret questions
             cmbSecretQuestion.Items.Add("What is your best pet's name?");
             cmbSecretQuestion.Items.Add("What is the name of your first school?");
             cmbSecretQuestion.Items.Add("What is your place of birth?");
@@ -42,77 +27,99 @@ namespace oop_aasignment
             cmbSecretQuestion.Items.Add("Favorite teacher's name?");
             cmbSecretQuestion.Items.Add("What is your favorite food?");
             cmbSecretQuestion.Items.Add("What is your favorite color?");
-
-            // Optional: Set to the prompt by default
             cmbSecretQuestion.SelectedIndex = 0;
-
-            // Prevent typing custom questions
             cmbSecretQuestion.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
-        private void ValidateSignUpInputs(object sender, EventArgs e)
+        private bool ValidateInputs()
         {
-            // Enable sign-up button only when all fields are filled
-            btnSignUp.Enabled = !string.IsNullOrWhiteSpace(txtFullName.Text) &&
-                                !string.IsNullOrWhiteSpace(txtEmail.Text) &&
-                                !string.IsNullOrWhiteSpace(txtPhoneNumber.Text)&&
-                                !string.IsNullOrWhiteSpace(txtPassword.Text) &&
-                                !string.IsNullOrWhiteSpace(txtConfirmPass.Text) &&
-                                !string.IsNullOrWhiteSpace(txtSecretAnswer.Text) &&
-                                cmbSecretQuestion.SelectedIndex > 0; //not default 
-        }
-        private void SignUpFrom_Load(object sender, EventArgs e)
-        {
+            string errors = "";
 
-        }
+            // FULL NAME
+            if (string.IsNullOrWhiteSpace(txtFullName.Text) || !Regex.IsMatch(txtFullName.Text.Trim(), @"^[a-zA-Z\s]+$"))
+                errors += "- Full name must contain only letters and spaces.\n";
 
-        private void btnBackToLogin_Click(object sender, EventArgs e)
-        {
-
-            this.Close(); // Close SignUpForm
-        }
-
-        private void lblTitle_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-            if (txtConfirmPass.PasswordChar == '*')
+            // EMAIL
+            string emailPattern = @"^[a-zA-Z0-9._%+-]+@mail\.com$";
+            string email = txtEmail.Text.Trim();
+            if (string.IsNullOrWhiteSpace(email) || !Regex.IsMatch(email, emailPattern))
             {
-                button2.BringToFront();
-                txtConfirmPass.PasswordChar = '\0';
+                errors += "- Email must end with '@mail.com'.\n";
+            }
+            else if (EmailExists(email))
+            {
+                errors += "- This email is already registered.\n";
             }
 
+            // PHONE NUMBER
+            if (!Regex.IsMatch(txtPhoneNumber.Text.Trim(), @"^\d{8,}$"))
+                errors += "- Phone number must be at least 8 digits.\n";
+
+            // PASSWORD
+            string password = txtPassword.Text;
+            if (password.Length < 8 || !Regex.IsMatch(password, @"\d"))
+                errors += "- Password must be at least 8 characters and include at least one digit.\n";
+
+            // CONFIRM PASSWORD
+            if (txtConfirmPass.Text != password)
+                errors += "- Passwords do not match.\n";
+
+            // SECRET QUESTION
+            if (cmbSecretQuestion.SelectedIndex <= 0)
+                errors += "- Please select a secret question.\n";
+
+            // SECRET ANSWER
+            if (string.IsNullOrWhiteSpace(txtSecretAnswer.Text))
+                errors += "- Secret answer is required.\n";
+
+            // SHOW ERRORS
+            if (!string.IsNullOrEmpty(errors))
+            {
+                MessageBox.Show("Please fix the following issues:\n\n" + errors, "Validation Errors", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            return true;
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private bool EmailExists(string email)
         {
-            if (txtConfirmPass.PasswordChar == '\0')
+            string connectionString = "Data Source=localhost;Initial Catalog=SadapMakanDB;Integrated Security=True;";
+            using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                button1.BringToFront();
-                txtConfirmPass.PasswordChar = '*';
+                string query = "SELECT COUNT(*) FROM users WHERE email = @Email";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@Email", email);
+
+                conn.Open();
+                int count = (int)cmd.ExecuteScalar();
+                return count > 0;
             }
         }
 
-        private void btnShowPss_Click(object sender, EventArgs e)
+        private void txtFullName_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (txtPassword.PasswordChar == '*')
-            {
-                butnCashPass.BringToFront();
-                txtPassword.PasswordChar = '\0';
-            }
-
+            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar) && e.KeyChar != ' ')
+                e.Handled = true;
         }
 
-        private void butnCashPass_Click(object sender, EventArgs e)
+        private void txtPhoneNumber_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (txtPassword.PasswordChar == '\0')
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+                e.Handled = true;
+        }
+
+        private void txtConfirmPass_TextChanged(object sender, EventArgs e)
+        {
+            if (txtConfirmPass.Text != txtPassword.Text)
             {
-                btnShowPss.BringToFront();
-                txtPassword.PasswordChar = '*';
+                lblPasswordMatch.Text = "❌ Passwords do not match.";
+                lblPasswordMatch.ForeColor = System.Drawing.Color.Red;
+            }
+            else
+            {
+                lblPasswordMatch.Text = "✅ Passwords match.";
+                lblPasswordMatch.ForeColor = System.Drawing.Color.Green;
             }
         }
 
@@ -120,58 +127,20 @@ namespace oop_aasignment
         {
             txtFullName.Clear();
             txtEmail.Clear();
+            txtPhoneNumber.Clear();
             txtPassword.Clear();
             txtConfirmPass.Clear();
-            txtPhoneNumber.Clear();
-            cmbSecretQuestion.SelectedIndex = -1; // Clear the selected item
-            btnSignUp.Enabled = false; // Disable sign-up button
             txtSecretAnswer.Clear();
-            txtFullName.Focus(); // Set focus back to the first field
-        }
-
-        private void lblPasswordMatch_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panelSecretQuestion_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panelSecretAnswer_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void cmbSecretQuestion_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtSecretAnswer_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtConfirmPass_TextChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void btnSignUp_Click_1(object sender, EventArgs e)
-        {
-            {
-
-            }
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
+            cmbSecretQuestion.SelectedIndex = 0;
+            lblPasswordMatch.Text = "";
+            txtFullName.Focus();
         }
 
         private void btnSignUp_Click(object sender, EventArgs e)
         {
+            if (!ValidateInputs())
+                return;
+
             User newUser = new User
             {
                 FullName = txtFullName.Text.Trim(),
@@ -183,11 +152,10 @@ namespace oop_aasignment
                 UserRole = "customer"
             };
 
-            User user = new User();
-            if (user.Register(newUser))
+            if (new User().Register(newUser))
             {
                 MessageBox.Show("Registration successful! You can now log in.");
-                this.Close(); // or redirect to login form
+                this.Close();
             }
             else
             {
@@ -195,9 +163,46 @@ namespace oop_aasignment
             }
         }
 
+        private void btnBackToLogin_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
 
+        private void btnShowPss_Click(object sender, EventArgs e)
+        {
+            if (txtPassword.PasswordChar == '*')
+            {
+                butnCashPass.BringToFront();
+                txtPassword.PasswordChar = '\0';
+            }
+        }
+
+        private void butnCashPass_Click(object sender, EventArgs e)
+        {
+            if (txtPassword.PasswordChar == '\0')
+            {
+                btnShowPss.BringToFront();
+                txtPassword.PasswordChar = '*';
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (txtConfirmPass.PasswordChar == '*')
+            {
+                button2.BringToFront();
+                txtConfirmPass.PasswordChar = '\0';
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (txtConfirmPass.PasswordChar == '\0')
+            {
+                button1.BringToFront();
+                txtConfirmPass.PasswordChar = '*';
+            }
+        }
     }
 }
-
-
 

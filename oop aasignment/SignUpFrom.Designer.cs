@@ -317,7 +317,7 @@
             this.lblTitleSignForm.Size = new System.Drawing.Size(91, 30);
             this.lblTitleSignForm.TabIndex = 26;
             this.lblTitleSignForm.Text = "Sign Up";
-            this.lblTitleSignForm.Click += new System.EventHandler(this.lblTitle_Click);
+            
             // 
             // lblPasswordMatch
             // 
@@ -328,7 +328,7 @@
             this.lblPasswordMatch.Size = new System.Drawing.Size(0, 13);
             this.lblPasswordMatch.TabIndex = 27;
             this.lblPasswordMatch.Visible = false;
-            this.lblPasswordMatch.Click += new System.EventHandler(this.lblPasswordMatch_Click);
+            
             // 
             // panelSecretQuestion
             // 
@@ -340,7 +340,7 @@
             this.panelSecretQuestion.Name = "panelSecretQuestion";
             this.panelSecretQuestion.Size = new System.Drawing.Size(310, 40);
             this.panelSecretQuestion.TabIndex = 28;
-            this.panelSecretQuestion.Paint += new System.Windows.Forms.PaintEventHandler(this.panelSecretQuestion_Paint);
+           
             // 
             // cmbSecretQuestion
             // 
@@ -357,7 +357,7 @@
             this.cmbSecretQuestion.Name = "cmbSecretQuestion";
             this.cmbSecretQuestion.Size = new System.Drawing.Size(205, 21);
             this.cmbSecretQuestion.TabIndex = 2;
-            this.cmbSecretQuestion.SelectedIndexChanged += new System.EventHandler(this.cmbSecretQuestion_SelectedIndexChanged);
+           
             // 
             // label2
             // 
@@ -381,7 +381,7 @@
             this.panelSecretAnswer.Name = "panelSecretAnswer";
             this.panelSecretAnswer.Size = new System.Drawing.Size(310, 40);
             this.panelSecretAnswer.TabIndex = 29;
-            this.panelSecretAnswer.Paint += new System.Windows.Forms.PaintEventHandler(this.panelSecretAnswer_Paint);
+           
             // 
             // lblSecretAnswer
             // 
@@ -404,7 +404,7 @@
             this.txtSecretAnswer.Name = "txtSecretAnswer";
             this.txtSecretAnswer.Size = new System.Drawing.Size(200, 18);
             this.txtSecretAnswer.TabIndex = 2;
-            this.txtSecretAnswer.TextChanged += new System.EventHandler(this.txtSecretAnswer_TextChanged);
+            
             // 
             // pictureBox1
             // 
@@ -470,7 +470,6 @@
             this.Name = "SignUpFrom";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SignUpFrom";
-            this.Load += new System.EventHandler(this.SignUpFrom_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);

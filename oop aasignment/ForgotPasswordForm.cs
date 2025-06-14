@@ -1,183 +1,174 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace oop_aasignment
 {
-    public partial class ForgotPasswordForm: Form
+    public partial class ForgotPasswordForm : Form
     {
+        private string connectionString = "Data Source=localhost;Initial Catalog=SadapMakanDB;Integrated Security=True;";
+        private string currentEmail;
+        private string correctSecretAnswer;
+
         public ForgotPasswordForm()
         {
             InitializeComponent();
 
-
-            // Attach validation for both fields
-            txtNewpass.TextChanged += ValidateLoginInputs;
-            txtConfirmpass.TextChanged += ValidateLoginInputs;
-            txtSecret.TextChanged += ValidateLoginInputs;
-            txtEmail.TextChanged += ValidateLoginInputs;
-
+            txtNewpass.TextChanged += ValidateInputs;
+            txtConfirmpass.TextChanged += ValidateInputs;
+            txtSecret.TextChanged += ValidateInputs;
+            txtEmail.TextChanged += ValidateInputs;
         }
-        
- 
-        private void ValidateLoginInputs(object sender, EventArgs e)
+
+        private void ValidateInputs(object sender, EventArgs e)
         {
             btnSumbit.Enabled = !string.IsNullOrWhiteSpace(txtNewpass.Text) &&
-                               !string.IsNullOrWhiteSpace(txtConfirmpass.Text);         
+                                !string.IsNullOrWhiteSpace(txtConfirmpass.Text);
             btnNext2.Enabled = !string.IsNullOrWhiteSpace(txtSecret.Text);
             btnNext1.Enabled = !string.IsNullOrWhiteSpace(txtEmail.Text);
-
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ForgotPasswordForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblEmailNotFound_Click(object sender, EventArgs e)
-        { 
-
-        }
         private void btnNext1_Click(object sender, EventArgs e)
         {
+            string email = txtEmail.Text.Trim();
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
             {
- 
-                string email = txtEmail.Text.Trim();
-                // Check if email matches the specific email
-                if (email != "smed25653@gmail.com")
+                string query = "SELECT secret_answer FROM users WHERE email = @Email";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@Email", email);
+
+                conn.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    currentEmail = email;
+                    correctSecretAnswer = reader["secret_answer"].ToString();
+
+                    lblEmailNotFound.Text = "";
+                    panelStep1.Visible = false;
+                    panelStep2.Visible = true;
+                    panelStep3.Visible = false;
+
+                    btnStep1.BackColor = Color.Gray;
+                    btnStep2.BackColor = Color.Blue;
+                    btnStep3.BackColor = Color.Gray;
+                }
+                else
                 {
                     lblEmailNotFound.Text = "Email not found.";
-                    return;
                 }
-
-                // Clear message if email is valid
-                lblEmailNotFound.Text = "";
-
-                // Hide Step 1, show Step 2
-                panelStep1.Visible = false;
-                panelStep2.Visible = true;
-                panelStep3.Visible = false;
-
-                // Set btnStep1 to gray, btnStep2 to blue
-                btnStep1.BackColor = System.Drawing.Color.Gray;
-                btnStep2.BackColor = System.Drawing.Color.Blue;
-                btnStep3.BackColor = System.Drawing.Color.Gray;
             }
-        }
-
-        private void lblSecretAnswerFault_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void btnNext2_Click(object sender, EventArgs e)
         {
+            string answer = txtSecret.Text.Trim();
 
-           
-            string secretAnswer = txtSecret.Text.Trim();
-
-            // Check if secret answer matches "Marry Ting"
-            if (secretAnswer != "Mary Ting")
+            if (!string.Equals(answer, correctSecretAnswer, StringComparison.OrdinalIgnoreCase))
             {
                 lblSecretAnswerFault.Text = "Incorrect answer.";
                 return;
             }
 
-            // Clear message if answer is correct
             lblSecretAnswerFault.Text = "";
 
-            // Move to Step 3
             panelStep1.Visible = false;
             panelStep2.Visible = false;
             panelStep3.Visible = true;
 
-            // Highlight Step 3
-            btnStep1.BackColor = System.Drawing.Color.Gray;
-            btnStep2.BackColor = System.Drawing.Color.Gray;
-            btnStep3.BackColor = System.Drawing.Color.Blue;
-        }
-
-        private void btnBack2_Click(object sender, EventArgs e)
-        {
-            // Go back to Step 1
-            panelStep1.Visible = true;
-            panelStep2.Visible = false;
-            panelStep3.Visible = false;
-
-            // Highlight Step 1
-            btnStep1.BackColor = System.Drawing.Color.Blue;
-            btnStep2.BackColor = System.Drawing.Color.Gray;
-            btnStep3.BackColor = System.Drawing.Color.Gray;
-        }
-
-        private void btnBack3_Click(object sender, EventArgs e)
-        {
-            // Go back to Step 2
-            panelStep1.Visible = false;
-            panelStep2.Visible = true;
-            panelStep3.Visible = false;
-
-            // Highlight Step 2
-            btnStep1.BackColor = System.Drawing.Color.Gray;
-            btnStep2.BackColor = System.Drawing.Color.Blue;
-            btnStep3.BackColor = System.Drawing.Color.Gray;
-        }
-
-        private void lblNotMatching_Click(object sender, EventArgs e)
-        {
-
+            btnStep1.BackColor = Color.Gray;
+            btnStep2.BackColor = Color.Gray;
+            btnStep3.BackColor = Color.Blue;
         }
 
         private void btnSumbit_Click(object sender, EventArgs e)
         {
-
-            // Check if either password is empty
             string newPassword = txtNewpass.Text.Trim();
             string confirmPassword = txtConfirmpass.Text.Trim();
-            if (txtNewpass.Text == txtConfirmpass.Text)
+
+            // Validate password strength
+            if (newPassword.Length < 8 || !Regex.IsMatch(newPassword, @"\d"))
             {
-                MessageBox.Show("Password changed successfully!");
+                MessageBox.Show("Password must be at least 8 characters and include at least one digit.", "Invalid Password", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
-            if (txtNewpass.Text != txtConfirmpass.Text)
+
+            // Match check
+            if (newPassword != confirmPassword)
             {
                 lblNotMatching.Text = "❌ Passwords don’t match.";
                 lblNotMatching.Visible = true;
                 return;
             }
-            // Reset the form
+
+            lblNotMatching.Visible = false;
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                string query = "UPDATE users SET password = @Password WHERE email = @Email";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@Password", newPassword);
+                cmd.Parameters.AddWithValue("@Email", currentEmail);
+
+                conn.Open();
+                int rowsAffected = cmd.ExecuteNonQuery();
+
+                if (rowsAffected > 0)
+                {
+                    MessageBox.Show("Password changed successfully!");
+
+                    txtEmail.Clear();
+                    txtSecret.Clear();
+                    txtNewpass.Clear();
+                    txtConfirmpass.Clear();
+
+                    panelStep1.Visible = true;
+                    panelStep2.Visible = false;
+                    panelStep3.Visible = false;
+
+                    btnStep1.BackColor = Color.Blue;
+                    btnStep2.BackColor = Color.Gray;
+                    btnStep3.BackColor = Color.Gray;
+
+                    this.Close(); // Optional
+                }
+                else
+                {
+                    MessageBox.Show("Error updating password. Try again.");
+                }
+            }
+        }
+
+        private void btnBack2_Click(object sender, EventArgs e)
+        {
             panelStep1.Visible = true;
             panelStep2.Visible = false;
             panelStep3.Visible = false;
 
-            btnStep1.BackColor = System.Drawing.Color.Blue;
-            btnStep2.BackColor = System.Drawing.Color.Gray;
-            btnStep3.BackColor = System.Drawing.Color.Gray;
+            btnStep1.BackColor = Color.Blue;
+            btnStep2.BackColor = Color.Gray;
+            btnStep3.BackColor = Color.Gray;
+        }
 
-            txtEmail.Text = "";
-            txtSecret.Text = "";
-            txtNewpass.Text = "";
-            txtConfirmpass.Text = "";
+        private void btnBack3_Click(object sender, EventArgs e)
+        {
+            panelStep1.Visible = false;
+            panelStep2.Visible = true;
+            panelStep3.Visible = false;
+
+            btnStep1.BackColor = Color.Gray;
+            btnStep2.BackColor = Color.Blue;
+            btnStep3.BackColor = Color.Gray;
         }
 
         private void btnBackToLogin_Click(object sender, EventArgs e)
         {
-            this.Close(); // Close ForgotPasswordForm
-        }
-
-        private void panelStep3_Paint(object sender, PaintEventArgs e)
-        {
-
+            this.Close();
         }
 
         private void btnShowPss_Click(object sender, EventArgs e)
@@ -215,5 +206,14 @@ namespace oop_aasignment
                 txtConfirmpass.PasswordChar = '\0';
             }
         }
+
+        // Optional empty event handlers
+        private void ForgotPasswordForm_Load(object sender, EventArgs e) { }
+        private void label1_Click(object sender, EventArgs e) { }
+        private void lblEmailNotFound_Click(object sender, EventArgs e) { }
+        private void lblSecretAnswerFault_Click(object sender, EventArgs e) { }
+        private void lblNotMatching_Click(object sender, EventArgs e) { }
+        private void panelStep3_Paint(object sender, PaintEventArgs e) { }
     }
 }
+

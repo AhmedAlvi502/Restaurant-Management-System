@@ -133,8 +133,7 @@
             this.lblEmailNotFound.Location = new System.Drawing.Point(150, 63);
             this.lblEmailNotFound.Name = "lblEmailNotFound";
             this.lblEmailNotFound.Size = new System.Drawing.Size(0, 13);
-            this.lblEmailNotFound.TabIndex = 3;
-            this.lblEmailNotFound.Click += new System.EventHandler(this.lblEmailNotFound_Click);
+            this.lblEmailNotFound.TabIndex = 3;           
             // 
             // btnNext1
             // 
@@ -186,8 +185,7 @@
             this.lblSecretAnswerFault.Name = "lblSecretAnswerFault";
             this.lblSecretAnswerFault.Size = new System.Drawing.Size(10, 13);
             this.lblSecretAnswerFault.TabIndex = 4;
-            this.lblSecretAnswerFault.Text = ".";
-            this.lblSecretAnswerFault.Click += new System.EventHandler(this.lblSecretAnswerFault_Click);
+            this.lblSecretAnswerFault.Text = ".";           
             // 
             // btnBack2
             // 
@@ -248,8 +246,7 @@
             this.panelStep3.Name = "panelStep3";
             this.panelStep3.Size = new System.Drawing.Size(300, 205);
             this.panelStep3.TabIndex = 4;
-            this.panelStep3.Visible = false;
-            this.panelStep3.Paint += new System.Windows.Forms.PaintEventHandler(this.panelStep3_Paint);
+            this.panelStep3.Visible = false;          
             // 
             // lblNotMatching
             // 
@@ -259,8 +256,7 @@
             this.lblNotMatching.Name = "lblNotMatching";
             this.lblNotMatching.Size = new System.Drawing.Size(10, 13);
             this.lblNotMatching.TabIndex = 11;
-            this.lblNotMatching.Text = ".";
-            this.lblNotMatching.Click += new System.EventHandler(this.lblNotMatching_Click);
+            this.lblNotMatching.Text = ".";          
             // 
             // button4
             // 
@@ -345,8 +341,6 @@
             this.lblNewPass.Size = new System.Drawing.Size(81, 13);
             this.lblNewPass.TabIndex = 4;
             this.lblNewPass.Text = "New Password:";
-            this.lblNewPass.Click += new System.EventHandler(this.label1_Click);
-            // 
             // btnBack3
             // 
             this.btnBack3.BackColor = System.Drawing.Color.Red;
@@ -422,7 +416,7 @@
             this.Name = "ForgotPasswordForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ForgotPasswordForm";
-            this.Load += new System.EventHandler(this.ForgotPasswordForm_Load);
+           
             this.panelSteps.ResumeLayout(false);
             this.panelStep1.ResumeLayout(false);
             this.panelStep1.PerformLayout();
