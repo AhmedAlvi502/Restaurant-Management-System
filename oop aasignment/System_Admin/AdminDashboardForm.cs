@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using oop_aasignment.;
 
 namespace oop_aasignment
 {
@@ -22,8 +23,8 @@ namespace oop_aasignment
 
         private void btnAdminProfile_Click(object sender, EventArgs e)
         {
-            AdminProfileForm pageAdminProfile = new AdminProfileForm();
-            pageAdminProfile.ShowDialog();
+            Form pageUserProfile = new SystemAdmin.formUserProfiles();
+            pageUserProfile.ShowDialog();
         }
 
         private void formAdminDashboard_Load(object sender, EventArgs e)
