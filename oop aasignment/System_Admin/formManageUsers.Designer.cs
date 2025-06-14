@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnUserTable = new System.Windows.Forms.Button();
+            this.btnRemoveUsers = new System.Windows.Forms.Button();
             this.btnGoBack = new System.Windows.Forms.Button();
             this.btnAddAdmin = new System.Windows.Forms.Button();
             this.btnAddManager = new System.Windows.Forms.Button();
@@ -37,25 +37,25 @@
             this.btnAddChef = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // btnUserTable
+            // btnRemoveUsers
             // 
-            this.btnUserTable.BackColor = System.Drawing.Color.LightGreen;
-            this.btnUserTable.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUserTable.Location = new System.Drawing.Point(739, 479);
-            this.btnUserTable.Name = "btnUserTable";
-            this.btnUserTable.Size = new System.Drawing.Size(159, 33);
-            this.btnUserTable.TabIndex = 18;
-            this.btnUserTable.Text = "Show Existing Users";
-            this.btnUserTable.UseVisualStyleBackColor = false;
-            this.btnUserTable.Click += new System.EventHandler(this.btnRemoveUser_Click);
+            this.btnRemoveUsers.BackColor = System.Drawing.Color.LightGreen;
+            this.btnRemoveUsers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRemoveUsers.Location = new System.Drawing.Point(733, 479);
+            this.btnRemoveUsers.Name = "btnRemoveUsers";
+            this.btnRemoveUsers.Size = new System.Drawing.Size(177, 49);
+            this.btnRemoveUsers.TabIndex = 18;
+            this.btnRemoveUsers.Text = "Remove Existing Users";
+            this.btnRemoveUsers.UseVisualStyleBackColor = false;
+            this.btnRemoveUsers.Click += new System.EventHandler(this.btnRemoveUser_Click);
             // 
             // btnGoBack
             // 
             this.btnGoBack.BackColor = System.Drawing.Color.LightGreen;
             this.btnGoBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGoBack.Location = new System.Drawing.Point(23, 479);
+            this.btnGoBack.Location = new System.Drawing.Point(37, 479);
             this.btnGoBack.Name = "btnGoBack";
-            this.btnGoBack.Size = new System.Drawing.Size(159, 33);
+            this.btnGoBack.Size = new System.Drawing.Size(163, 49);
             this.btnGoBack.TabIndex = 19;
             this.btnGoBack.Text = "Go Back";
             this.btnGoBack.UseVisualStyleBackColor = false;
@@ -145,7 +145,7 @@
             this.Controls.Add(this.btnAddManager);
             this.Controls.Add(this.btnAddAdmin);
             this.Controls.Add(this.btnGoBack);
-            this.Controls.Add(this.btnUserTable);
+            this.Controls.Add(this.btnRemoveUsers);
             this.Name = "formManageUsers";
             this.Text = "Manage Users";
             this.ResumeLayout(false);
@@ -155,7 +155,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnUserTable;
+        private System.Windows.Forms.Button btnRemoveUsers;
         private System.Windows.Forms.Button btnGoBack;
         private System.Windows.Forms.Button btnAddAdmin;
         private System.Windows.Forms.Button btnAddManager;
