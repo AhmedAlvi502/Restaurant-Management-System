@@ -18,7 +18,7 @@ namespace oop_aasignment
         {
             InitializeComponent();
             dashboard = callingForm;
-            lblBalance.Text = $"RM {Session.WalletBalance:F2}";
+            lblBalance.Text = $"RM {Session.WalletBalance:F2}";  // Display current balance from session
             pnlTopUp.Visible = false;
             lblStatus.Text = "";
         }
@@ -29,20 +29,20 @@ namespace oop_aasignment
             dashboard.Show();     // Show dashboard again
         }
 
-        private void FormEWallet_Load(object sender, EventArgs e)
+        private void FormEWallet_Load(object sender, EventArgs e) // On form load: Fetch wallet balance and transaction history from DB.
         {
             Customer cust = new Customer();
-            decimal balance = cust.GetWalletBalance(Session.UserId);
+            decimal balance = cust.GetWalletBalance(Session.UserId); // Get current wallet balance and transactions
             dgvHistory.DataSource = cust.GetTransactionHistory(Session.UserId);
             Session.WalletBalance = balance;  // update session
 
             lblBalance.Text = $"RM {balance:F2}";
-            pnlTopUp.Visible = false;
+            pnlTopUp.Visible = false; // Hide top-up panel and reset messages
             lblStatus.Text = "";
-            cmbMethod.Items.AddRange(new[] { "Credit/Debit Card", "Online Banking", "Touch'n Go", "Grab Pay" });
+            cmbMethod.Items.AddRange(new[] { "Credit/Debit Card", "Online Banking", "Touch'n Go", "Grab Pay" }); // Populate combo box with top-up methods
             cmbMethod.SelectedIndex = -1;
 
-            SetupTransactionHistoryGrid();
+            SetupTransactionHistoryGrid();  // Set up grid columns manually
         }
 
         private void SetupTransactionHistoryGrid()
@@ -110,12 +110,12 @@ namespace oop_aasignment
         }
 
 
-
+        // Hides the top-up panel without making changes.
         private void btnCancelTopUp_Click(object sender, EventArgs e)
         {
             pnlTopUp.Visible = false;
         }
-
+        // Confirms and processes the top-up request with validation and feedback.
         private async void btnConfirmTopUp_Click(object sender, EventArgs e)
         {
             if (!decimal.TryParse(txtTopUpAmount.Text, out decimal amount) || amount <= 0)
@@ -125,14 +125,14 @@ namespace oop_aasignment
                 return;
             }
 
-            if (cmbMethod.SelectedIndex == -1)
+            if (cmbMethod.SelectedIndex == -1) // Validate method selection
             {
                 lblTopUpMessage.Text = "Please select a payment method.";
                 lblTopUpMessage.ForeColor = Color.Red;
                 return;
             }
 
-            if (txtTopUpPassword.Text != Session.UserPassword)
+            if (txtTopUpPassword.Text != Session.UserPassword) // Validate password
             {
                 lblTopUpMessage.Text = "Incorrect password.";
                 lblTopUpMessage.ForeColor = Color.Red;
@@ -204,7 +204,9 @@ namespace oop_aasignment
 
         private void chkShowPassword_CheckedChanged(object sender, EventArgs e)
         {
-            txtTopUpPassword.UseSystemPasswordChar = !chkShowPassword.Checked;
+            txtTopUpPassword.UseSystemPasswordChar = !chkShowPassword.Checked; // Toggles visibility of password field for top-up authentication.
         }
+
+        
     }
 }

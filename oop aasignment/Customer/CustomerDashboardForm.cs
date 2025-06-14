@@ -14,23 +14,23 @@ namespace oop_aasignment
 {
     public partial class CustomerDashboardForm : Form
     {
-        public int CustomerID;
+        public int CustomerID; // Stores the logged-in customer's ID
 
 
-        public CustomerDashboardForm(int id)
+        public CustomerDashboardForm(int id) // Constructor that accepts the customer ID and stores it.
         {
             InitializeComponent();
             CustomerID = id;
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void pictureBox1_Click(object sender, EventArgs e) // Opens the Customer Profile form when profile picture is clicked.
         {
             this.Hide();
             FormCustomerProfile profileForm = new FormCustomerProfile(this);
             profileForm.Show();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void label1_Click(object sender, EventArgs e) // Opens the Menu form when the Menu label is clicked.
         {
             this.Hide(); // Hide the dashboard
             FormMenuBrowse menuForm = new FormMenuBrowse(this);
@@ -39,14 +39,14 @@ namespace oop_aasignment
 
 
 
-        private void label1_Click_1(object sender, EventArgs e)
+        private void label1_Click_1(object sender, EventArgs e) // Opens the Order Management form when the Orders label is clicked.
         {
             this.Hide();
             FormOrderManagement orderForm = new FormOrderManagement(this);
             orderForm.Show();
         }
 
-        private void picEwallet_Click(object sender, EventArgs e)
+        private void picEwallet_Click(object sender, EventArgs e) // Opens the E-Wallet form when its picture is clicked.
         {
             this.Hide();
             FormEWallet walletForm = new FormEWallet(this);
@@ -60,7 +60,7 @@ namespace oop_aasignment
             menuForm.Show(); // Show menu form
         }
 
-        private void picOrders_Click(object sender, EventArgs e)
+        private void picOrders_Click(object sender, EventArgs e) // Opens the Order Management form when Orders image is clicked.
         {
             this.Hide();
             FormOrderManagement orderForm = new FormOrderManagement(this);
@@ -81,13 +81,13 @@ namespace oop_aasignment
             walletForm.Show();
         }
 
-        private void lblFeedback_Click(object sender, EventArgs e)
+        private void lblFeedback_Click(object sender, EventArgs e) // Opens the Feedback form when the Feedback label is clicked.
         {
             this.Hide();
             FormFeedback feedbackForm = new FormFeedback(this);
             feedbackForm.Show();
         }
-
+        // UI effect: Add 3D border on hover for Menu
         private void picMenu_MouseEnter(object sender, EventArgs e)
         {
             picMenu.BorderStyle = BorderStyle.Fixed3D;
@@ -98,7 +98,7 @@ namespace oop_aasignment
             picMenu.BorderStyle = BorderStyle.None;
         }
 
-        private void picOrders_MouseEnter(object sender, EventArgs e)
+        private void picOrders_MouseEnter(object sender, EventArgs e) // UI effect: Add 3D border on hover for Orders
         {
             picOrders.BorderStyle = BorderStyle.Fixed3D;
         }
@@ -107,7 +107,7 @@ namespace oop_aasignment
         {
             picOrders.BorderStyle = BorderStyle.None;
         }
-
+        // UI effect: Add 3D border on hover for E-Wallet
         private void picEwallet_MouseEnter(object sender, EventArgs e)
         {
             picEwallet.BorderStyle = BorderStyle.Fixed3D;
@@ -125,7 +125,7 @@ namespace oop_aasignment
         {
             PicFeedback.BorderStyle = BorderStyle.None;
         }
-
+        // UI effect: Add 3D border on hover for Profile
         private void pictureBox1_MouseEnter(object sender, EventArgs e)
         {
             pictureBox1.BorderStyle = BorderStyle.Fixed3D;
@@ -143,7 +143,7 @@ namespace oop_aasignment
             profileForm.Show();
         }
 
-        private void CustomerDashboardForm_Load(object sender, EventArgs e)
+        private void CustomerDashboardForm_Load(object sender, EventArgs e) // Loads customer profile info when dashboard opens and displays welcome message.
         {
             // Create Customer class instance
             Customer cust = new Customer();
@@ -161,7 +161,7 @@ namespace oop_aasignment
             }
         }
 
-        private void btnLogout_Click(object sender, EventArgs e)
+        private void btnLogout_Click(object sender, EventArgs e) // Handles logout logic: confirm, clear session, return to login form.
         {
             DialogResult result = MessageBox.Show(
                 "Are you sure you want to log out?",

@@ -21,11 +21,11 @@ namespace oop_aasignment
         public FormCustomerProfile(Form callingForm)
         {
             InitializeComponent();
-            dashboard = callingForm;
+            dashboard = callingForm; // Save reference to allow returning to dashboard
         }
 
 
-        Customer cust = new Customer();
+        Customer cust = new Customer(); // On load, retrieves and displays the customer's profile information.
         private void FormCustomerProfile_Load(object sender, EventArgs e)
         {
             DataTable dt = cust.GetProfile(Session.UserId);
@@ -40,7 +40,7 @@ namespace oop_aasignment
             SetEditable(false);
             txtPassword.UseSystemPasswordChar = true;
         }
-        private void LoadCustomerData()
+        private void LoadCustomerData() /// Reloads the customer's profile data into the form fields.
         {
             DataTable dt = cust.GetProfile(Session.UserId);
             if (dt.Rows.Count > 0)
@@ -52,7 +52,7 @@ namespace oop_aasignment
             }
         }
 
-
+        // Enables or disables editing mode for profile fields.
         private void SetEditable(bool isEditable)
         {
             txtName.ReadOnly = !isEditable;
@@ -71,18 +71,18 @@ namespace oop_aasignment
             this.Close();        // Close profile form
             dashboard.Show();    // Show dashboard again
         }
-
+        // Enables editing mode when Edit button is clicked.
         private void btnEdit_Click(object sender, EventArgs e)
         {
             SetEditable(true);
         }
-
+        // Cancels editing and reloads original data.
         private void btnCancel_Click(object sender, EventArgs e)
         {
             LoadCustomerData();
             SetEditable(false);
         }
-
+        // Saves updated profile data and confirms with the user.
         private void btnSave_Click(object sender, EventArgs e)
         {
             string msg = cust.UpdateProfile(Session.UserId, txtName.Text.Trim(), txtEmail.Text.Trim(), txtPhone.Text.Trim(), txtPassword.Text);
@@ -99,25 +99,19 @@ namespace oop_aasignment
                 SetEditable(false);
             }
         }
-
+        // Toggles visibility of password based on checkbox.
         private void chkShowPass_CheckedChanged(object sender, EventArgs e)
         {
             txtPassword.UseSystemPasswordChar = !chkShowPass.Checked;
         }
-
+        // Enables security question editing panel.
         private void btnEditSecurity_Click(object sender, EventArgs e)
         {
             pnlSecurity.Visible = true;
             pnlMain.Visible = false;
             btnEditSecurity.Visible = false; // ✅ Hide the button while editing
         }
-
-
-        private void btnCancelSecurity_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
+        // Saves new secret question and answer after password confirmation.
         private void btnSaveSecurity_Click(object sender, EventArgs e)
         {
             string enteredPassword = txtConfirmPassword.Text;
