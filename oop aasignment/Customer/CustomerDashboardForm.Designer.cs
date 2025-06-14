@@ -44,6 +44,7 @@
             this.lblFeedback = new System.Windows.Forms.Label();
             this.lblprofile = new System.Windows.Forms.Label();
             this.lblWelcome = new System.Windows.Forms.Label();
+            this.btnLogout = new System.Windows.Forms.Button();
             this.panelMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picMenu)).BeginInit();
             this.panelOrders.SuspendLayout();
@@ -251,6 +252,20 @@
             this.lblWelcome.Size = new System.Drawing.Size(0, 22);
             this.lblWelcome.TabIndex = 6;
             // 
+            // btnLogout
+            // 
+            this.btnLogout.BackColor = System.Drawing.Color.Transparent;
+            this.btnLogout.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnLogout.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogout.Location = new System.Drawing.Point(689, 397);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(81, 43);
+            this.btnLogout.TabIndex = 7;
+            this.btnLogout.Text = "Logout";
+            this.btnLogout.UseVisualStyleBackColor = false;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
+            // 
             // CustomerDashboardForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -259,6 +274,7 @@
             this.BackgroundImage = global::oop_aasignment.Properties.Resources.ChatGPT_Image_Jun_8__2025__06_57_11_PM;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.lblWelcome);
             this.Controls.Add(this.lblprofile);
             this.Controls.Add(this.lblEwallet);
@@ -306,5 +322,6 @@
         private System.Windows.Forms.Label lblFeedback;
         private System.Windows.Forms.Label lblprofile;
         private System.Windows.Forms.Label lblWelcome;
+        private System.Windows.Forms.Button btnLogout;
     }
 }

@@ -34,6 +34,17 @@ namespace oop_aasignment
 
         private void FormFeedback_Load(object sender, EventArgs e)
         {
+            // Fallback: if name/email not in session, fetch from DB
+            if (string.IsNullOrWhiteSpace(Session.CustomerName) || string.IsNullOrWhiteSpace(Session.CustomerEmail))
+            {
+                DataTable dt = cust.GetProfile(Session.UserId);
+                if (dt.Rows.Count > 0)
+                {
+                    Session.CustomerName = dt.Rows[0]["full_name"].ToString();
+                    Session.CustomerEmail = dt.Rows[0]["email"].ToString();
+                }
+            }
+
             txtName.Text = Session.CustomerName;
             txtEmail.Text = Session.CustomerEmail;
             txtName.ReadOnly = true;
@@ -47,9 +58,9 @@ namespace oop_aasignment
 
             lblStatus.Text = "";
             dgvPreviousFeedback.AutoGenerateColumns = true;
-
             pnlPrevious.Visible = false;
         }
+
 
 
         private void btnSubmit_Click(object sender, EventArgs e)

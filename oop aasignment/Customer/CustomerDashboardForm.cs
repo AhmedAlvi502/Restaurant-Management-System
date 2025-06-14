@@ -161,5 +161,30 @@ namespace oop_aasignment
             }
         }
 
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show(
+                "Are you sure you want to log out?",
+                "Confirm Logout",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                // Optional: Clear session data
+                Session.UserId = 0;
+                Session.CustomerName = null;
+                Session.CustomerEmail = null;
+                Session.UserPassword = null;
+
+                // Show login form
+                LoginForm loginForm = new LoginForm();
+                loginForm.Show();
+
+                // Close the dashboard
+                this.Close();
+            }
+        }
+
     }
 }
