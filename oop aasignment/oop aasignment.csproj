@@ -169,10 +169,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="formViewEWallet.cs">
+    <Compile Include="System_Admin\formViewEWallet.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="formViewEWallet.Designer.cs">
+    <Compile Include="System_Admin\formViewEWallet.Designer.cs">
       <DependentUpon>formViewEWallet.cs</DependentUpon>
     </Compile>
     <Compile Include="System_Admin\AdminDashboardForm.cs">
@@ -288,11 +288,11 @@
       <DependentUpon>RespondToFeedback.cs</DependentUpon>
     </Compile>
     <Compile Include="Customer\Session.cs" />
-    <Compile Include="SignUpFrom.cs">
+    <Compile Include="SignUpForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SignUpFrom.Designer.cs">
-      <DependentUpon>SignUpFrom.cs</DependentUpon>
+    <Compile Include="SignUpForm.Designer.cs">
+      <DependentUpon>SignUpForm.cs</DependentUpon>
     </Compile>
     <Compile Include="System_Admin\formAddUser.cs">
       <SubType>Form</SubType>
@@ -350,7 +350,7 @@
     <Compile Include="System_Admin\ViewSalesForm.Designer.cs">
       <DependentUpon>ViewSalesForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="formViewEWallet.resx">
+    <EmbeddedResource Include="System_Admin\formViewEWallet.resx">
       <DependentUpon>formViewEWallet.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="System_Admin\AdminDashboardForm.resx">
@@ -406,8 +406,8 @@
     <EmbeddedResource Include="Manager\RespondToFeedback.resx">
       <DependentUpon>RespondToFeedback.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SignUpFrom.resx">
-      <DependentUpon>SignUpFrom.cs</DependentUpon>
+    <EmbeddedResource Include="SignUpForm.resx">
+      <DependentUpon>SignUpForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Manager\TopUp.resx">
       <DependentUpon>TopUp.cs</DependentUpon>

@@ -132,7 +132,7 @@ namespace oop_aasignment
         private void lnkSignUP_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             this.Hide(); // Hide LoginForm
-            SignUpFrom signUpForm = new SignUpFrom(); // Open SignUpForm
+            SignUpForm signUpForm = new SignUpForm(); // Open SignUpForm
             signUpForm.FormClosed += (s, args) => this.Show(); // Show LoginForm again when SignUpForm is closed
             signUpForm.Show();
 
