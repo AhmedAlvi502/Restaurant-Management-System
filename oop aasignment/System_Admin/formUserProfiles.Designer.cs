@@ -1,4 +1,4 @@
-﻿namespace oop_aasignment.SystemAdmin
+﻿namespace oop_aasignment
 {
     partial class formUserProfiles
     {

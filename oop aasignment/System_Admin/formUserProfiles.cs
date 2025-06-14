@@ -7,8 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
-namespace oop_aasignment.SystemAdmin
+namespace oop_aasignment
 {
     public partial class formUserProfiles : Form
     {
