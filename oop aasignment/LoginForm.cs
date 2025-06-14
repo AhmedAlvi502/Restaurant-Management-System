@@ -202,6 +202,7 @@ namespace oop_aasignment
                         case "customer":
                             CustomerDashboardForm customerForm = new CustomerDashboardForm(userId);
                             customerForm.Show();
+
                             break;
 
                         default:

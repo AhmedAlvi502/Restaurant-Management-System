@@ -1,5 +1,4 @@
 ﻿using SedapmakanCustomer;
-using SedapmakanCustomer.Forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -149,6 +148,7 @@ namespace oop_aasignment
             // Create Customer class instance
             Customer cust = new Customer();
             DataTable dt = cust.GetProfile(Session.UserId);
+            
 
             if (dt.Rows.Count > 0)
             {
