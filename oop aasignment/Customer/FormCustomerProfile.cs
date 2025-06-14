@@ -24,16 +24,6 @@ namespace oop_aasignment
             dashboard = callingForm;
         }
 
-        // Mock class simulating a logged-in customer
-        private class MockCustomer
-        {
-            public string FullName { get; set; } = "Nurul Huda";
-            public string Email { get; set; } = "nurulhuda@mail.com";
-            public string Phone { get; set; } = "0155000000";
-            public string Password { get; set; } = "pass123";
-            public string SecretQuestion { get; set; } = "What is your favorite color?";
-            public string SecretAnswer { get; set; } = "Blue";
-        }
 
         Customer cust = new Customer();
         private void FormCustomerProfile_Load(object sender, EventArgs e)
