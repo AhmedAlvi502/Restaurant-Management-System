@@ -24,6 +24,7 @@ namespace oop_aasignment
             // Add key press validations
             txtName.KeyPress += txtName_TextChanged;
             txtPrice.KeyPress += txtPrice_TextChanged;
+            
 
             // Get the current chef ID and category
             chefId = loggedInChefId;
@@ -204,10 +205,6 @@ namespace oop_aasignment
             this.Close();
         }
 
-        // Unused event handlers (can be removed or kept empty if needed)
-        private void dgvMenuItems_CellContentClick(object sender, DataGridViewCellEventArgs e) { }
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e) { }
-
         // These are placeholder event handlers
         private void txtName_TextChanged(object sender, EventArgs e) { }
         private void txtPrice_TextChanged(object sender, EventArgs e) { }
@@ -239,6 +236,5 @@ namespace oop_aasignment
             }
         }
 
-        private void cmbCategory_SelectedIndexChanged(object sender, EventArgs e) { }
     }
 }

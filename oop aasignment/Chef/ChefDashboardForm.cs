@@ -62,15 +62,5 @@ namespace oop_aasignment
             loginForm.FormClosed += (s, args) => this.Show(); // Optional: show dashboard again if needed
             loginForm.Show();
         }
-
-        private void txtTitle_TextChanged(object sender, EventArgs e)
-        {
-            // No action needed here
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
