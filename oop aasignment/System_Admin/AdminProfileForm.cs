@@ -135,12 +135,12 @@ namespace oop_aasignment
             if (isPasswordVisible)
             {
                 txtAdminPassword.UseSystemPasswordChar = false;
-                btnShowPas.Text = "🙈";
+                btnShowPass.Text = "🙈";
             }
             else
             {
                 txtAdminPassword.UseSystemPasswordChar = true;
-                btnShowPas.Text = "👁️";
+                btnShowPass.Text = "👁️";
             }
         }
 
@@ -151,12 +151,12 @@ namespace oop_aasignment
             if (isPasswordVisible)
             {
                 txtConfirmPass.UseSystemPasswordChar = false;
-                btnShowConPas.Text = "🙈";
+                btnShowConPass.Text = "🙈";
             }
             else
             {
                 txtConfirmPass.UseSystemPasswordChar = true;
-                btnShowConPas.Text = "👁️";
+                btnShowConPass.Text = "👁️";
             }
         }
 

@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formAdminProfile));
             this.lblAdminProfile = new System.Windows.Forms.Label();
-            this.btnAdminBackToDashBoard = new System.Windows.Forms.Button();
+            this.btnAdminBack = new System.Windows.Forms.Button();
             this.btnAdminClear = new System.Windows.Forms.Button();
             this.btnAdminUpdate = new System.Windows.Forms.Button();
             this.txtConfirmPass = new System.Windows.Forms.TextBox();
@@ -39,12 +39,12 @@
             this.lblAdminPassword = new System.Windows.Forms.Label();
             this.txtAdminEmail = new System.Windows.Forms.TextBox();
             this.lblAdminEmail = new System.Windows.Forms.Label();
-            this.lblAdminPhoneNumber = new System.Windows.Forms.Label();
+            this.lblAdminPhone = new System.Windows.Forms.Label();
             this.txtAdminPhone = new System.Windows.Forms.TextBox();
             this.txtAdminName = new System.Windows.Forms.TextBox();
             this.lblAdminName = new System.Windows.Forms.Label();
-            this.btnShowPas = new System.Windows.Forms.Button();
-            this.btnShowConPas = new System.Windows.Forms.Button();
+            this.btnShowPass = new System.Windows.Forms.Button();
+            this.btnShowConPass = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblAdminProfile
@@ -59,19 +59,19 @@
             this.lblAdminProfile.TabIndex = 1;
             this.lblAdminProfile.Text = "Update Admin Profile";
             // 
-            // btnAdminBackToDashBoard
+            // btnAdminBack
             // 
-            this.btnAdminBackToDashBoard.BackColor = System.Drawing.Color.IndianRed;
-            this.btnAdminBackToDashBoard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAdminBackToDashBoard.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnAdminBackToDashBoard.Location = new System.Drawing.Point(122, 470);
-            this.btnAdminBackToDashBoard.Margin = new System.Windows.Forms.Padding(4);
-            this.btnAdminBackToDashBoard.Name = "btnAdminBackToDashBoard";
-            this.btnAdminBackToDashBoard.Size = new System.Drawing.Size(129, 39);
-            this.btnAdminBackToDashBoard.TabIndex = 41;
-            this.btnAdminBackToDashBoard.Text = "Back ";
-            this.btnAdminBackToDashBoard.UseVisualStyleBackColor = false;
-            this.btnAdminBackToDashBoard.Click += new System.EventHandler(this.btnAdminBackToDashBoard_Click);
+            this.btnAdminBack.BackColor = System.Drawing.Color.IndianRed;
+            this.btnAdminBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdminBack.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnAdminBack.Location = new System.Drawing.Point(122, 470);
+            this.btnAdminBack.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAdminBack.Name = "btnAdminBack";
+            this.btnAdminBack.Size = new System.Drawing.Size(129, 39);
+            this.btnAdminBack.TabIndex = 41;
+            this.btnAdminBack.Text = "Back ";
+            this.btnAdminBack.UseVisualStyleBackColor = false;
+            this.btnAdminBack.Click += new System.EventHandler(this.btnAdminBackToDashBoard_Click);
             // 
             // btnAdminClear
             // 
@@ -159,16 +159,16 @@
             this.lblAdminEmail.TabIndex = 33;
             this.lblAdminEmail.Text = "Email:";
             // 
-            // lblAdminPhoneNumber
+            // lblAdminPhone
             // 
-            this.lblAdminPhoneNumber.AutoSize = true;
-            this.lblAdminPhoneNumber.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAdminPhoneNumber.Location = new System.Drawing.Point(173, 253);
-            this.lblAdminPhoneNumber.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblAdminPhoneNumber.Name = "lblAdminPhoneNumber";
-            this.lblAdminPhoneNumber.Size = new System.Drawing.Size(131, 23);
-            this.lblAdminPhoneNumber.TabIndex = 32;
-            this.lblAdminPhoneNumber.Text = "Phone Number:";
+            this.lblAdminPhone.AutoSize = true;
+            this.lblAdminPhone.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAdminPhone.Location = new System.Drawing.Point(173, 253);
+            this.lblAdminPhone.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblAdminPhone.Name = "lblAdminPhone";
+            this.lblAdminPhone.Size = new System.Drawing.Size(131, 23);
+            this.lblAdminPhone.TabIndex = 32;
+            this.lblAdminPhone.Text = "Phone Number:";
             // 
             // txtAdminPhone
             // 
@@ -198,33 +198,33 @@
             this.lblAdminName.TabIndex = 29;
             this.lblAdminName.Text = "Full Name:";
             // 
-            // btnShowPas
+            // btnShowPass
             // 
-            this.btnShowPas.BackColor = System.Drawing.Color.White;
-            this.btnShowPas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnShowPas.ForeColor = System.Drawing.Color.Transparent;
-            this.btnShowPas.Image = ((System.Drawing.Image)(resources.GetObject("btnShowPas.Image")));
-            this.btnShowPas.Location = new System.Drawing.Point(593, 313);
-            this.btnShowPas.Margin = new System.Windows.Forms.Padding(4);
-            this.btnShowPas.Name = "btnShowPas";
-            this.btnShowPas.Size = new System.Drawing.Size(36, 25);
-            this.btnShowPas.TabIndex = 42;
-            this.btnShowPas.UseVisualStyleBackColor = false;
-            this.btnShowPas.Click += new System.EventHandler(this.btnShowPas_Click);
+            this.btnShowPass.BackColor = System.Drawing.Color.White;
+            this.btnShowPass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnShowPass.ForeColor = System.Drawing.Color.Transparent;
+            this.btnShowPass.Image = ((System.Drawing.Image)(resources.GetObject("btnShowPass.Image")));
+            this.btnShowPass.Location = new System.Drawing.Point(593, 313);
+            this.btnShowPass.Margin = new System.Windows.Forms.Padding(4);
+            this.btnShowPass.Name = "btnShowPass";
+            this.btnShowPass.Size = new System.Drawing.Size(36, 25);
+            this.btnShowPass.TabIndex = 42;
+            this.btnShowPass.UseVisualStyleBackColor = false;
+            this.btnShowPass.Click += new System.EventHandler(this.btnShowPas_Click);
             // 
-            // btnShowConPas
+            // btnShowConPass
             // 
-            this.btnShowConPas.BackColor = System.Drawing.Color.White;
-            this.btnShowConPas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnShowConPas.ForeColor = System.Drawing.Color.Transparent;
-            this.btnShowConPas.Image = ((System.Drawing.Image)(resources.GetObject("btnShowConPas.Image")));
-            this.btnShowConPas.Location = new System.Drawing.Point(593, 374);
-            this.btnShowConPas.Margin = new System.Windows.Forms.Padding(4);
-            this.btnShowConPas.Name = "btnShowConPas";
-            this.btnShowConPas.Size = new System.Drawing.Size(36, 25);
-            this.btnShowConPas.TabIndex = 43;
-            this.btnShowConPas.UseVisualStyleBackColor = false;
-            this.btnShowConPas.Click += new System.EventHandler(this.btnShoConPas_Click);
+            this.btnShowConPass.BackColor = System.Drawing.Color.White;
+            this.btnShowConPass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnShowConPass.ForeColor = System.Drawing.Color.Transparent;
+            this.btnShowConPass.Image = ((System.Drawing.Image)(resources.GetObject("btnShowConPass.Image")));
+            this.btnShowConPass.Location = new System.Drawing.Point(593, 374);
+            this.btnShowConPass.Margin = new System.Windows.Forms.Padding(4);
+            this.btnShowConPass.Name = "btnShowConPass";
+            this.btnShowConPass.Size = new System.Drawing.Size(36, 25);
+            this.btnShowConPass.TabIndex = 43;
+            this.btnShowConPass.UseVisualStyleBackColor = false;
+            this.btnShowConPass.Click += new System.EventHandler(this.btnShoConPas_Click);
             // 
             // formAdminProfile
             // 
@@ -232,9 +232,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkOrange;
             this.ClientSize = new System.Drawing.Size(804, 543);
-            this.Controls.Add(this.btnShowConPas);
-            this.Controls.Add(this.btnShowPas);
-            this.Controls.Add(this.btnAdminBackToDashBoard);
+            this.Controls.Add(this.btnShowConPass);
+            this.Controls.Add(this.btnShowPass);
+            this.Controls.Add(this.btnAdminBack);
             this.Controls.Add(this.btnAdminClear);
             this.Controls.Add(this.btnAdminUpdate);
             this.Controls.Add(this.txtConfirmPass);
@@ -243,7 +243,7 @@
             this.Controls.Add(this.lblAdminPassword);
             this.Controls.Add(this.txtAdminEmail);
             this.Controls.Add(this.lblAdminEmail);
-            this.Controls.Add(this.lblAdminPhoneNumber);
+            this.Controls.Add(this.lblAdminPhone);
             this.Controls.Add(this.txtAdminPhone);
             this.Controls.Add(this.txtAdminName);
             this.Controls.Add(this.lblAdminName);
@@ -258,7 +258,7 @@
         #endregion
 
         private System.Windows.Forms.Label lblAdminProfile;
-        private System.Windows.Forms.Button btnAdminBackToDashBoard;
+        private System.Windows.Forms.Button btnAdminBack;
         private System.Windows.Forms.Button btnAdminClear;
         private System.Windows.Forms.Button btnAdminUpdate;
         private System.Windows.Forms.TextBox txtConfirmPass;
@@ -267,11 +267,11 @@
         private System.Windows.Forms.Label lblAdminPassword;
         private System.Windows.Forms.TextBox txtAdminEmail;
         private System.Windows.Forms.Label lblAdminEmail;
-        private System.Windows.Forms.Label lblAdminPhoneNumber;
+        private System.Windows.Forms.Label lblAdminPhone;
         private System.Windows.Forms.TextBox txtAdminPhone;
         private System.Windows.Forms.TextBox txtAdminName;
         private System.Windows.Forms.Label lblAdminName;
-        private System.Windows.Forms.Button btnShowPas;
-        private System.Windows.Forms.Button btnShowConPas;
+        private System.Windows.Forms.Button btnShowPass;
+        private System.Windows.Forms.Button btnShowConPass;
     }
 }
