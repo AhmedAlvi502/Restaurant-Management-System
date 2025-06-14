@@ -19,7 +19,7 @@ namespace oop_aasignment
         public formSalesView()
         {
             InitializeComponent();
-            GetSalesData();
+            
             
         }
           
@@ -30,24 +30,30 @@ namespace oop_aasignment
         }
         private void ClearFields()
         {
+            // Clear text and reset background for Month ComboBox
             cmbMonth.Text = string.Empty;
             cmbMonth.BackColor = SystemColors.Window;
+            cmbMonth.SelectedIndex = -1;
 
+            // Clear text and reset background for Year ComboBox
             cmbYear.Text = string.Empty;
             cmbYear.BackColor = SystemColors.Window;
+            cmbYear.SelectedIndex = -1; 
 
+            // Clear text and reset background for Category ComboBox
             cmbCategory.Text = string.Empty;
             cmbCategory.BackColor = SystemColors.Window;
+            cmbCategory.SelectedIndex = -1; 
 
+            // Clear text and reset background for Chef ComboBox
             cmbChef.Text = string.Empty;
             cmbChef.BackColor = SystemColors.Window;
+            cmbChef.SelectedIndex = -1;
         }
 
         private void formSalesView_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'sedapMakanSales.Sales' table. You can move, or remove it, as needed.
-            //this.salesTableAdapter.Fill(this.sedapMakanSales.Sales);
-           
+            GetSalesData();
 
         }
 
@@ -67,7 +73,7 @@ namespace oop_aasignment
         private void btnGenReport_Click(object sender, EventArgs e)
         {
 
-            string connectionString = myconn; // Replace with your actual connection string
+            string connectionString = myconn;
 
             DataTable reportData = Admin.GenerateSalesReport(
                 cmbCategory,
@@ -77,7 +83,6 @@ namespace oop_aasignment
                 connectionString
             );
 
-            // Assuming you have a DataGridView named salesDataGridView
             salesDataGridView.DataSource = reportData;
         }
         
