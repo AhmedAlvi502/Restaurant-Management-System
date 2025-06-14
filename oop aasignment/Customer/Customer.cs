@@ -10,11 +10,11 @@ using System.Linq;
 /// Keeps business logic out of Forms.
 /// </summary>
 public class Customer
-{
+{   // SQL Server connection string to the database
     private readonly string connectionString = @"Data Source=localhost;Initial Catalog=SadapMakanDB;Integrated Security=True;";
 
     // 👤 Get customer profile
-    public DataTable GetProfile(int customerId)
+    public DataTable GetProfile(int customerId) // Retrieves the customer profile by ID.
     {
         using (SqlConnection conn = new SqlConnection(connectionString))
         {
@@ -51,7 +51,7 @@ public class Customer
             return rows > 0 ? "Profile updated successfully." : "Update failed.";
         }
     }
-    public string UpdateSecurityInfo(int userId, string question, string answer)
+    public string UpdateSecurityInfo(int userId, string question, string answer) // Updates the customer's secret question and answer for account recovery.
     {
         using (SqlConnection conn = new SqlConnection(connectionString))
         {
@@ -120,7 +120,7 @@ public class Customer
 
 
     // 📋 Load orders
-    public DataTable GetOrders(int userId)
+    public DataTable GetOrders(int userId) // Retrieves all orders placed by a specific customer.
     {
         using (SqlConnection conn = new SqlConnection(connectionString))
         {
@@ -152,7 +152,7 @@ public class Customer
 
 
     // 🍽️ Load menu
-    public DataTable GetAllMenuItems()
+    public DataTable GetAllMenuItems() // Retrieves all available menu items.
     {
         using (SqlConnection conn = new SqlConnection(connectionString))
         {
@@ -240,7 +240,7 @@ public class Customer
     }
 
 
-    public DataTable GetPreviousFeedbacks(int userId)
+    public DataTable GetPreviousFeedbacks(int userId) // Gets all feedback previously submitted by the customer.
     {
         using (SqlConnection conn = new SqlConnection(connectionString))
         {
@@ -311,7 +311,7 @@ public class Customer
     }
 
 
-    public decimal GetWalletBalance(int userId)
+    public decimal GetWalletBalance(int userId) // Retrieves the wallet balance for a customer.
     {
         using (SqlConnection conn = new SqlConnection(connectionString))
         {
@@ -324,7 +324,7 @@ public class Customer
         }
     }
 
-    public DataTable GetTransactionHistory(int userId)
+    public DataTable GetTransactionHistory(int userId) // Gets the customer's wallet transaction history.
     {
         using (SqlConnection conn = new SqlConnection(connectionString))
         {
@@ -348,7 +348,7 @@ public class Customer
             return dt;
         }
     }
-
+    // Deducts funds from the customer's wallet if sufficient balance is available.
     public string DeductWalletBalance(int userId, decimal amount)
     {
         using (SqlConnection conn = new SqlConnection(connectionString))
