@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.lblAdminProfile = new System.Windows.Forms.Label();
+            this.lblSalesViewer = new System.Windows.Forms.Label();
             this.cmbMonth = new System.Windows.Forms.ComboBox();
             this.cmbYear = new System.Windows.Forms.ComboBox();
             this.cmbCategory = new System.Windows.Forms.ComboBox();
@@ -48,17 +48,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.salesDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
-            // lblAdminProfile
+            // lblSalesViewer
             // 
-            this.lblAdminProfile.AutoSize = true;
-            this.lblAdminProfile.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAdminProfile.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblAdminProfile.Location = new System.Drawing.Point(344, 44);
-            this.lblAdminProfile.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblAdminProfile.Name = "lblAdminProfile";
-            this.lblAdminProfile.Size = new System.Drawing.Size(274, 37);
-            this.lblAdminProfile.TabIndex = 2;
-            this.lblAdminProfile.Text = "Sales Report Viewer";
+            this.lblSalesViewer.AutoSize = true;
+            this.lblSalesViewer.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSalesViewer.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.lblSalesViewer.Location = new System.Drawing.Point(344, 44);
+            this.lblSalesViewer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblSalesViewer.Name = "lblSalesViewer";
+            this.lblSalesViewer.Size = new System.Drawing.Size(274, 37);
+            this.lblSalesViewer.TabIndex = 2;
+            this.lblSalesViewer.Text = "Sales Report Viewer";
             // 
             // cmbMonth
             // 
@@ -224,7 +224,7 @@
             this.Controls.Add(this.lblChef);
             this.Controls.Add(this.lblYear);
             this.Controls.Add(this.lblMonth);
-            this.Controls.Add(this.lblAdminProfile);
+            this.Controls.Add(this.lblSalesViewer);
             this.Controls.Add(this.cmbChef);
             this.Controls.Add(this.cmbCategory);
             this.Controls.Add(this.cmbYear);
@@ -240,7 +240,7 @@
         }
 
         #endregion
-        private System.Windows.Forms.Label lblAdminProfile;
+        private System.Windows.Forms.Label lblSalesViewer;
         private System.Windows.Forms.ComboBox cmbMonth;
         private System.Windows.Forms.ComboBox cmbYear;
         private System.Windows.Forms.ComboBox cmbCategory;

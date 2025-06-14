@@ -238,30 +238,7 @@ namespace oop_aasignment
                 return dt;
             }
         }
-        // GetRefundReason        //logic for database
-        public string GetRefundReason(int refundId)
-        {
-
-            using (SqlConnection conn = new SqlConnection(connectionString))
-            {
-                conn.Open();
-                using (SqlCommand cmd = new SqlCommand("SELECT reason FROM refund_requests WHERE refund_id = @refundId", conn))
-                {
-                    cmd.Parameters.AddWithValue("@refundId", refundId);
-                    object result = cmd.ExecuteScalar();
-                    return result?.ToString() ?? "Reason not found.";
-                }
-            }
-        }
-
-
-
-
-
-        internal void man(int userId, decimal amount)
-        {
-            
-        }
+        
     }
 
 
