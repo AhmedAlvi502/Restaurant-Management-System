@@ -95,6 +95,7 @@
             this.btnViewEWallet.TabIndex = 2;
             this.btnViewEWallet.Text = "View E-Wallet Top Up";
             this.btnViewEWallet.UseVisualStyleBackColor = false;
+            this.btnViewEWallet.Click += new System.EventHandler(this.btnViewEWallet_Click);
             // 
             // lblAdminWelcome
             // 

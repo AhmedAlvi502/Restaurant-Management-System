@@ -62,5 +62,13 @@ namespace oop_aasignment
             pageManageUsers.FormClosed += (s, args) => this.Show();
             pageManageUsers.Show();
         }
+
+        private void btnViewEWallet_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            formViewEWallet pageViewEWallet = new formViewEWallet();
+            pageViewEWallet.FormClosed += (s, args) => this.Show();
+            pageViewEWallet.Show();
+        }
     }
 }

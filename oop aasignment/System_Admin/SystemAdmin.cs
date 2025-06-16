@@ -214,45 +214,115 @@ namespace oop_aasignment
              
         }
 
-        public DataTable GenerateEWalletReport(ComboBox E_WalletID, ComboBox Month, ComboBox Year)
+        public DataTable GenerateEWalletReport(ComboBox cmbWalletID, ComboBox cmbMonth, ComboBox cmbYear)
         {
-            try
+            DataTable dt = new DataTable();
+            StringBuilder queryBuilder = new StringBuilder();
+
+            // Base SELECT query
+            queryBuilder.Append(@"SELECT transaction_id, wallet_id, type, amount, timestamp
+                         FROM e_wallet_transactions");
+
+            // --- Safely retrieve selected values from ComboBoxes ---
+            string selectedEWalletID = cmbWalletID.SelectedItem?.ToString();
+
+            // Safely parse month and year to int, handling cases where items might not be int or are null
+            int? selectedMonth = null;
+            if (cmbMonth.SelectedItem != null && int.TryParse(cmbMonth.SelectedItem.ToString(), out int monthValue))
             {
-                DataTable dt = new DataTable();
-                string query = @"SELECT wallet_id, type, amount, timestamp
-                             FROM e_wallet_transactions
-                             WHERE wallet_id = @WalletID,
-                                   MONTH(timestamp) = @Month,
-                                   YEAR(timestamp) = @Year";
+                selectedMonth = monthValue;
+            }
 
+            int? selectedYear = null;
+            if (cmbYear.SelectedItem != null && int.TryParse(cmbYear.SelectedItem.ToString(), out int yearValue))
+            {
+                selectedYear = yearValue;
+            }
 
-                using (SqlConnection myDB = new SqlConnection(myconn))
+            // --- Build the WHERE clause dynamically ---
+            bool firstCondition = true; // Helper to add "WHERE" and "AND" correctly
+
+            Action<string> AddWhereCondition = (condition) =>
+            {
+                if (firstCondition)
                 {
-                    using (SqlCommand cmd = new SqlCommand(query, myDB))
+                    queryBuilder.Append(" WHERE ");
+                    firstCondition = false;
+                }
+                else
+                {
+                    queryBuilder.Append(" AND ");
+                }
+                queryBuilder.Append(condition);
+            };
+
+            // Add conditions based on selections
+            if (!string.IsNullOrEmpty(selectedEWalletID))
+            {
+                AddWhereCondition("wallet_id = @WalletID");
+            }
+
+            if (selectedMonth.HasValue) // Check if a month was selected
+            {
+                AddWhereCondition("MONTH(timestamp) = @Month");
+            }
+
+            if (selectedYear.HasValue) // Check if a year was selected
+            {
+                AddWhereCondition("YEAR(timestamp) = @Year");
+            }
+
+            string finalQuery = queryBuilder.ToString();
+
+            // --- Execute the query with dynamic parameters ---
+            // Ensure 'myconn' is accessible in this scope (e.g., as a class member or passed parameter)
+            using (SqlConnection myDB = new SqlConnection(myconn))
+            {
+                using (SqlCommand cmd = new SqlCommand(finalQuery, myDB))
+                {
+                    // Add parameters ONLY if their corresponding conditions were added to the query
+                    if (!string.IsNullOrEmpty(selectedEWalletID))
+                    {
+                        cmd.Parameters.AddWithValue("@WalletID", selectedEWalletID);
+                    }
+
+                    if (selectedMonth.HasValue)
+                    {
+                        // It's generally better to specify SqlDbType for clarity, though AddWithValue often infers correctly
+                        cmd.Parameters.Add("@Month", SqlDbType.Int).Value = selectedMonth.Value;
+                    }
+
+                    if (selectedYear.HasValue)
+                    {
+                        cmd.Parameters.Add("@Year", SqlDbType.Int).Value = selectedYear.Value;
+                    }
+
+                    try
                     {
                         myDB.Open();
-                        cmd.Parameters.AddWithValue("@WalletID", E_WalletID);
-                        cmd.Parameters.AddWithValue("@Month", Month);
-                        cmd.Parameters.AddWithValue("@Year", Year);
-
                         using (SqlDataAdapter da = new SqlDataAdapter(cmd))
                         {
                             da.Fill(dt);
                         }
                     }
-                    return dt;
+                    catch (SqlException ex)
+                    {
+                        // Log the exception details for debugging
+                        // Use System.Diagnostics.Debug.WriteLine for debug output, or a proper logging framework
+                        System.Diagnostics.Debug.WriteLine("SQL Error in GenerateEWalletReport: " + ex.Message);
+                        // Re-throw as a generic exception for the UI layer to handle
+                        throw new Exception("Database error: " + ex.Message, ex);
+                    }
+                    catch (Exception ex)
+                    {
+                        // Catch any other unexpected errors
+                        System.Diagnostics.Debug.WriteLine("An unexpected error occurred in GenerateEWalletReport: " + ex.Message);
+                        throw new Exception("An unexpected error occurred: " + ex.Message, ex);
+                    }
                 }
+            }
+            return dt;
 
-            }
-            catch (SqlException ex)
-            {
-                throw new Exception("Database error" + ex.Message);
-            }
-            catch (Exception e)
-            {
-                throw new Exception("An unexpected error occured" + e.Message);
-            }
-                
         }
     }
 }           

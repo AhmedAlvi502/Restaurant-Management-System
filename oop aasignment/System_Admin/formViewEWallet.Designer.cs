@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dgvEWallet = new System.Windows.Forms.DataGridView();
             this.lblEWalletViewer = new System.Windows.Forms.Label();
             this.lblYear = new System.Windows.Forms.Label();
             this.lblMonth = new System.Windows.Forms.Label();
@@ -39,18 +38,9 @@
             this.btnEWalletReport = new System.Windows.Forms.Button();
             this.btnClearFields = new System.Windows.Forms.Button();
             this.btnExitViewer = new System.Windows.Forms.Button();
+            this.dgvEWallet = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEWallet)).BeginInit();
             this.SuspendLayout();
-            // 
-            // dgvEWallet
-            // 
-            this.dgvEWallet.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvEWallet.Location = new System.Drawing.Point(48, 188);
-            this.dgvEWallet.Name = "dgvEWallet";
-            this.dgvEWallet.RowHeadersWidth = 51;
-            this.dgvEWallet.RowTemplate.Height = 24;
-            this.dgvEWallet.Size = new System.Drawing.Size(861, 200);
-            this.dgvEWallet.TabIndex = 0;
             // 
             // lblEWalletViewer
             // 
@@ -94,8 +84,8 @@
             this.cmbYear.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbYear.FormattingEnabled = true;
             this.cmbYear.Items.AddRange(new object[] {
-            "\"2024\"",
-            "\"2025\""});
+            "2024",
+            "2025"});
             this.cmbYear.Location = new System.Drawing.Point(372, 136);
             this.cmbYear.Name = "cmbYear";
             this.cmbYear.Size = new System.Drawing.Size(172, 24);
@@ -106,8 +96,8 @@
             this.cmbMonth.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbMonth.FormattingEnabled = true;
             this.cmbMonth.Items.AddRange(new object[] {
-            "\"5\"",
-            "\"6\""});
+            "5",
+            "6"});
             this.cmbMonth.Location = new System.Drawing.Point(135, 136);
             this.cmbMonth.Name = "cmbMonth";
             this.cmbMonth.Size = new System.Drawing.Size(172, 24);
@@ -130,10 +120,9 @@
             this.cmbWalletID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbWalletID.FormattingEnabled = true;
             this.cmbWalletID.Items.AddRange(new object[] {
-            "Said",
-            "Adel",
-            "Aiman",
-            "David"});
+            "21",
+            "22",
+            "23"});
             this.cmbWalletID.Location = new System.Drawing.Point(598, 136);
             this.cmbWalletID.Name = "cmbWalletID";
             this.cmbWalletID.Size = new System.Drawing.Size(172, 24);
@@ -162,6 +151,7 @@
             this.btnClearFields.TabIndex = 19;
             this.btnClearFields.Text = "Clear Fields";
             this.btnClearFields.UseVisualStyleBackColor = false;
+            this.btnClearFields.Click += new System.EventHandler(this.btnClearFields_Click);
             // 
             // btnExitViewer
             // 
@@ -176,12 +166,23 @@
             this.btnExitViewer.UseVisualStyleBackColor = false;
             this.btnExitViewer.Click += new System.EventHandler(this.btnExitViewer_Click);
             // 
+            // dgvEWallet
+            // 
+            this.dgvEWallet.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvEWallet.Location = new System.Drawing.Point(106, 186);
+            this.dgvEWallet.Name = "dgvEWallet";
+            this.dgvEWallet.RowHeadersWidth = 51;
+            this.dgvEWallet.RowTemplate.Height = 24;
+            this.dgvEWallet.Size = new System.Drawing.Size(749, 193);
+            this.dgvEWallet.TabIndex = 21;
+            // 
             // formViewEWallet
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkOrange;
             this.ClientSize = new System.Drawing.Size(962, 468);
+            this.Controls.Add(this.dgvEWallet);
             this.Controls.Add(this.btnEWalletReport);
             this.Controls.Add(this.btnClearFields);
             this.Controls.Add(this.btnExitViewer);
@@ -192,7 +193,6 @@
             this.Controls.Add(this.cmbYear);
             this.Controls.Add(this.cmbMonth);
             this.Controls.Add(this.lblEWalletViewer);
-            this.Controls.Add(this.dgvEWallet);
             this.Name = "formViewEWallet";
             this.Text = "EWallet Top-up Viewer";
             this.Load += new System.EventHandler(this.formViewEWallet_Load);
@@ -203,8 +203,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView dgvEWallet;
         private System.Windows.Forms.Label lblEWalletViewer;
         private System.Windows.Forms.Label lblYear;
         private System.Windows.Forms.Label lblMonth;
@@ -215,5 +213,6 @@
         private System.Windows.Forms.Button btnEWalletReport;
         private System.Windows.Forms.Button btnClearFields;
         private System.Windows.Forms.Button btnExitViewer;
+        private System.Windows.Forms.DataGridView dgvEWallet;
     }
 }
