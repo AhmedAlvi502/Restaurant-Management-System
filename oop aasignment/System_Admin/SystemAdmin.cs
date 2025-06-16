@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic.ApplicationServices;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Common;
@@ -7,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 namespace oop_aasignment
 {
     public class SystemAdmin : User
@@ -190,15 +192,67 @@ namespace oop_aasignment
             }
             catch (SqlException ex) // Catch specific SQL-related exceptions
             {
-                Console.WriteLine($"Database error occurred: {ex.Message}");
                 return $"Database operation failed: {ex.Message}"; // Return a user-friendly error message
             }
             catch (Exception ex) // Catch any other general exceptions
             {
-                // Log the exception details
-                Console.WriteLine($"An unexpected error occurred: {ex.Message}");
                 return $"An unexpected error occurred: {ex.Message}"; // Return a general error message
             }
+
+        }
+
+        public DataTable LoadEWalletData()
+        {   using (SqlConnection myDB = new SqlConnection(myconn))
+            {
+                string query = "SELECT * From e_wallet_transactions";
+                SqlCommand cmd = new SqlCommand(query, myDB);
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                return dt;
+            }
+             
+        }
+
+        public DataTable GenerateEWalletReport(ComboBox E_WalletID, ComboBox Month, ComboBox Year)
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+                string query = @"SELECT wallet_id, type, amount, timestamp
+                             FROM e_wallet_transactions
+                             WHERE wallet_id = @WalletID,
+                                   MONTH(timestamp) = @Month,
+                                   YEAR(timestamp) = @Year";
+
+
+                using (SqlConnection myDB = new SqlConnection(myconn))
+                {
+                    using (SqlCommand cmd = new SqlCommand(query, myDB))
+                    {
+                        myDB.Open();
+                        cmd.Parameters.AddWithValue("@WalletID", E_WalletID);
+                        cmd.Parameters.AddWithValue("@Month", Month);
+                        cmd.Parameters.AddWithValue("@Year", Year);
+
+                        using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                        {
+                            da.Fill(dt);
+                        }
+                    }
+                    return dt;
+                }
+
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception("Database error" + ex.Message);
+            }
+            catch (Exception e)
+            {
+                throw new Exception("An unexpected error occured" + e.Message);
+            }
+                
         }
     }
-}
+}           

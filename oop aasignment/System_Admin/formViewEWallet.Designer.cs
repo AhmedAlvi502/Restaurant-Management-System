@@ -149,6 +149,7 @@
             this.btnEWalletReport.TabIndex = 20;
             this.btnEWalletReport.Text = "Generate Report";
             this.btnEWalletReport.UseVisualStyleBackColor = false;
+            this.btnEWalletReport.Click += new System.EventHandler(this.btnEWalletReport_Click);
             // 
             // btnClearFields
             // 
@@ -194,6 +195,7 @@
             this.Controls.Add(this.dgvEWallet);
             this.Name = "formViewEWallet";
             this.Text = "EWallet Top-up Viewer";
+            this.Load += new System.EventHandler(this.formViewEWallet_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvEWallet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
