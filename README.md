@@ -5,6 +5,7 @@ A database-driven C# desktop application designed to streamline restaurant opera
 🛡️ Security Implementation
 
 Role-Based Access Control (RBAC)
+
 The system employs a strict RBAC model to ensure that users interact only with the data and functions necessary for their specific roles. This prevents unauthorized access to administrative settings or sensitive financial reports.
 
 System Administrator: Full CRUD (Create, Read, Update, Delete) permissions for user management and access to global sales/e-wallet reports.
@@ -16,6 +17,7 @@ Chef: Access limited to the kitchen order queue and order status updates.
 Customer: Limited to personal profile management, menu browsing, and order placement via a secure e-wallet.
 
 SQL Injection Prevention (Defensive Security)
+
 A core security feature of this application is the systematic prevention of SQL Injection (SQLi) attacks. Instead of using string concatenation to build database queries—which would allow malicious actors to manipulate command logic—this system exclusively uses Parameterized SQL Queries.
 
 Why this matters:
