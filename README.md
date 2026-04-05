@@ -1,4 +1,4 @@
-**SedapMakan Management System**
+**SedapMakan Restaurant Management System**
 
 A robust, database-driven desktop application for streamlined restaurant operations.
 
