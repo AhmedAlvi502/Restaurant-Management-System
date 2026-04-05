@@ -24,7 +24,7 @@ A core security feature of this application is the systematic prevention of SQL 
 By using parameters, the database treats user input strictly as data, not as part of the executable command. This "Defensive Security" approach ensures that input like ' OR '1'='1 is neutralized and cannot bypass authentication or leak database records.
 
 
-🚀 Technical Features
+Technical Features
 Technology Stack: C# (.NET Framework), Microsoft SQL Server.
 
 Architecture: Object-Oriented Design (OOD) utilizing Inheritance for user roles and Encapsulation for data protection.
