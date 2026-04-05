@@ -3,6 +3,7 @@
 A database-driven C# desktop application designed to streamline restaurant operations through a multi-role architecture. This project prioritizes data integrity and system security, implementing granular access controls and defensive SQL practices to protect sensitive user and financial data.
 
 🛡️ Security Implementation
+
 Role-Based Access Control (RBAC)
 The system employs a strict RBAC model to ensure that users interact only with the data and functions necessary for their specific roles. This prevents unauthorized access to administrative settings or sensitive financial reports.
 
