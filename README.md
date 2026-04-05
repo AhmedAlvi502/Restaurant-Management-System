@@ -1,32 +1,44 @@
-**SedapMakan Restaurant Management System**
+**SedapMakan Management System**
 
-A robust, database-driven desktop application for streamlined restaurant operations.
+A database-driven C# desktop application designed to streamline restaurant operations through a multi-role architecture. This project prioritizes data integrity and system security, implementing granular access controls and defensive SQL practices to protect sensitive user and financial data.
 
-This project is a comprehensive Restaurant Management System developed using C# and MS SQL Server. Designed with a multi-role architecture, it automates core business processes ranging from customer ordering and secure e-wallet transactions to administrative oversight and financial reporting.
+🛡️ Security Implementation
+Role-Based Access Control (RBAC)
+The system employs a strict RBAC model to ensure that users interact only with the data and functions necessary for their specific roles. This prevents unauthorized access to administrative settings or sensitive financial reports.
 
-Key Features
-Role-Based Access Control (RBAC): Specialized dashboards for System Administrators, Managers, Chefs, and Customers, ensuring secure and relevant data access.
+System Administrator: Full CRUD (Create, Read, Update, Delete) permissions for user management and access to global sales/e-wallet reports.
 
-Automated Ordering & Transactions: Integrated food ordering system linked to a customer e-wallet for seamless, cashless payments.
+Manager: Restricted to operational oversight, including feedback management and e-wallet top-up approvals.
 
-Operational Management: Real-time order tracking for chefs and feedback management for restaurant managers.
+Chef: Access limited to the kitchen order queue and order status updates.
 
-Administrative & Financial Reporting: Dynamic sales and e-wallet reports filtered by date, category, and personnel to support data-driven decision-making.
+Customer: Limited to personal profile management, menu browsing, and order placement via a secure e-wallet.
 
-Technical Stack
-Language: C# (.NET Framework)
+SQL Injection Prevention (Defensive Security)
+A core security feature of this application is the systematic prevention of SQL Injection (SQLi) attacks. Instead of using string concatenation to build database queries—which would allow malicious actors to manipulate command logic—this system exclusively uses Parameterized SQL Queries.
 
-Database: Microsoft SQL Server
+Why this matters:
+By using parameters, the database treats user input strictly as data, not as part of the executable command. This "Defensive Security" approach ensures that input like ' OR '1'='1 is neutralized and cannot bypass authentication or leak database records.
 
-Architecture: Object-Oriented Programming (OOP) principles including Inheritance, Encapsulation, and Abstraction.
 
-Design Tooling: UML (Class and Use Case diagrams) for architectural planning.
+🚀 Technical Features
+Technology Stack: C# (.NET Framework), Microsoft SQL Server.
 
-Primary Contributions
-System Architecture: Designed the foundational Class and Use Case diagrams to map system logic and user interactions.
+Architecture: Object-Oriented Design (OOD) utilizing Inheritance for user roles and Encapsulation for data protection.
 
-Database Engineering: Architected and implemented the MS SQL Server database schema, ensuring data integrity across all user roles.
+Reporting: Dynamic generation of sales and e-wallet usage reports with custom date and category filters.
 
-Administrative Module: Developed the full suite of System Administrator tools, including user management and financial reporting modules.
+Transaction Logic: A localized E-Wallet system that manages customer balances with transaction logging to prevent financial discrepancies.
 
-System Integration: Spearheaded the merging of team-contributed codebases into a unified, standalone executable.
+🛠️ Setup and Installation
+Clone the repository: git clone https://github.com/AhmedAlvi502/Restaurant-Management-System.git
+
+Database Configuration:
+
+Import the provided .sql schema into your MS SQL Server instance.
+
+Update the ConnectionString in the App.config or database helper class to match your local server credentials.
+
+Build: Open the .sln file in Visual Studio and build the solution.
+
+Run: Start the application to access the login portal.
