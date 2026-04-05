@@ -1,4 +1,5 @@
-SedapMakan Management System
+**SedapMakan Management System**
+
 A robust, database-driven desktop application for streamlined restaurant operations.
 
 This project is a comprehensive Restaurant Management System developed using C# and MS SQL Server. Designed with a multi-role architecture, it automates core business processes ranging from customer ordering and secure e-wallet transactions to administrative oversight and financial reporting.
